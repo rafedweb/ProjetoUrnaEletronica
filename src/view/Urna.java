@@ -49,7 +49,6 @@ public class Urna extends javax.swing.JPanel {
         jBBRANCO = new javax.swing.JButton();
         jBNOVE = new javax.swing.JButton();
         jBZERO = new javax.swing.JButton();
-        jBNULO = new javax.swing.JButton();
         jBCONFIRMAR = new javax.swing.JButton();
         jBCANCELAR = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -61,10 +60,12 @@ public class Urna extends javax.swing.JPanel {
         jTDigitoDOIS = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
         jBTRES.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBTRES.setText("3");
         jBTRES.setToolTipText("");
-        jBTRES.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBTRES.setPreferredSize(new java.awt.Dimension(75, 70));
         jBTRES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTRESActionPerformed(evt);
@@ -73,7 +74,7 @@ public class Urna extends javax.swing.JPanel {
 
         jBUM.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBUM.setText("1");
-        jBUM.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBUM.setPreferredSize(new java.awt.Dimension(75, 70));
         jBUM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBUMActionPerformed(evt);
@@ -82,7 +83,7 @@ public class Urna extends javax.swing.JPanel {
 
         jBDOIS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBDOIS.setText("2");
-        jBDOIS.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBDOIS.setPreferredSize(new java.awt.Dimension(75, 70));
         jBDOIS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBDOISActionPerformed(evt);
@@ -92,7 +93,7 @@ public class Urna extends javax.swing.JPanel {
         jBQUANTRO.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBQUANTRO.setText("4");
         jBQUANTRO.setToolTipText("");
-        jBQUANTRO.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBQUANTRO.setPreferredSize(new java.awt.Dimension(75, 70));
         jBQUANTRO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBQUANTROActionPerformed(evt);
@@ -102,7 +103,7 @@ public class Urna extends javax.swing.JPanel {
         jBSETE.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBSETE.setText("7");
         jBSETE.setToolTipText("");
-        jBSETE.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBSETE.setPreferredSize(new java.awt.Dimension(75, 70));
         jBSETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSETEActionPerformed(evt);
@@ -112,7 +113,7 @@ public class Urna extends javax.swing.JPanel {
         jBCINCO.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBCINCO.setText("5");
         jBCINCO.setToolTipText("");
-        jBCINCO.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBCINCO.setPreferredSize(new java.awt.Dimension(75, 70));
         jBCINCO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCINCOActionPerformed(evt);
@@ -122,7 +123,7 @@ public class Urna extends javax.swing.JPanel {
         jBSEIS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBSEIS.setText("6");
         jBSEIS.setToolTipText("");
-        jBSEIS.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBSEIS.setPreferredSize(new java.awt.Dimension(75, 70));
         jBSEIS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSEISActionPerformed(evt);
@@ -132,7 +133,7 @@ public class Urna extends javax.swing.JPanel {
         jBOITO.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBOITO.setText("8");
         jBOITO.setToolTipText("");
-        jBOITO.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBOITO.setPreferredSize(new java.awt.Dimension(75, 70));
         jBOITO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBOITOActionPerformed(evt);
@@ -153,7 +154,7 @@ public class Urna extends javax.swing.JPanel {
         jBNOVE.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBNOVE.setText("9");
         jBNOVE.setToolTipText("");
-        jBNOVE.setPreferredSize(new java.awt.Dimension(70, 70));
+        jBNOVE.setPreferredSize(new java.awt.Dimension(75, 70));
         jBNOVE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNOVEActionPerformed(evt);
@@ -170,20 +171,9 @@ public class Urna extends javax.swing.JPanel {
             }
         });
 
-        jBNULO.setBackground(new java.awt.Color(255, 102, 0));
-        jBNULO.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jBNULO.setText("Nulo");
-        jBNULO.setToolTipText("");
-        jBNULO.setPreferredSize(new java.awt.Dimension(70, 70));
-        jBNULO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNULOActionPerformed(evt);
-            }
-        });
-
         jBCONFIRMAR.setBackground(new java.awt.Color(0, 153, 51));
         jBCONFIRMAR.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jBCONFIRMAR.setText("Confirmar");
+        jBCONFIRMAR.setText("Confirma");
         jBCONFIRMAR.setToolTipText("");
         jBCONFIRMAR.setPreferredSize(new java.awt.Dimension(70, 70));
         jBCONFIRMAR.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +184,7 @@ public class Urna extends javax.swing.JPanel {
 
         jBCANCELAR.setBackground(new java.awt.Color(255, 0, 51));
         jBCANCELAR.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jBCANCELAR.setText("Cancelar");
+        jBCANCELAR.setText("Corrige");
         jBCANCELAR.setToolTipText("");
         jBCANCELAR.setPreferredSize(new java.awt.Dimension(70, 70));
         jBCANCELAR.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +199,13 @@ public class Urna extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBBRANCO, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBCANCELAR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBCONFIRMAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jBUM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,19 +221,12 @@ public class Urna extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jBSETE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBOITO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBZERO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBOITO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBNOVE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jBZERO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jBBRANCO, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(jBCONFIRMAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jBCANCELAR, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                            .addComponent(jBNULO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBNOVE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,17 +246,17 @@ public class Urna extends javax.swing.JPanel {
                     .addComponent(jBSETE, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBOITO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBNOVE, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBZERO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBBRANCO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBNULO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCONFIRMAR, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCANCELAR, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBBRANCO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBCANCELAR, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jBCONFIRMAR, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         jTextPane1.setEditable(false);
@@ -283,7 +272,7 @@ public class Urna extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(jTNome))
                 .addContainerGap())
         );
@@ -310,7 +299,7 @@ public class Urna extends javax.swing.JPanel {
         jTDigitoDOIS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("Urna Eletônica");
+        jLabel1.setText("FATENE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -324,22 +313,21 @@ public class Urna extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTDigitoDOIS, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTCargo)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(85, 85, 85)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
+                .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTDigitoUM, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTDigitoDOIS, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -484,14 +472,6 @@ public class Urna extends javax.swing.JPanel {
         votoController.Votar();
     }//GEN-LAST:event_jBBRANCOActionPerformed
 
-    private void jBNULOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNULOActionPerformed
-        // TODO add your handling code here:
-        votoController.voto.setValorVoto(101);
-        votoController.voto.setDataVoto(Calendar.getInstance());
-        votoController.candidato = null;
-        votoController.Votar();
-    }//GEN-LAST:event_jBNULOActionPerformed
-
     private void jBCONFIRMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCONFIRMARActionPerformed
         // TODO add your handling code here:
         if ("".equals(jTDigitoUM.getText()) || "".equals(jTDigitoDOIS.getText())) {
@@ -538,7 +518,6 @@ public class Urna extends javax.swing.JPanel {
     private javax.swing.JButton jBCONFIRMAR;
     private javax.swing.JButton jBDOIS;
     private javax.swing.JButton jBNOVE;
-    private javax.swing.JButton jBNULO;
     private javax.swing.JButton jBOITO;
     private javax.swing.JButton jBQUANTRO;
     private javax.swing.JButton jBSEIS;
