@@ -27,11 +27,11 @@ public class MenuView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBUrna = new javax.swing.JDesktopPane();
+        jBPrincipal = new javax.swing.JDesktopPane();
         CadastrarCandidato = new javax.swing.JButton();
         jBLimparBase = new javax.swing.JButton();
         jBRelatorio = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBUrnaElectronica = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -57,26 +57,35 @@ public class MenuView extends javax.swing.JFrame {
                 CadastrarCandidatoActionPerformed(evt);
             }
         });
-        jBUrna.add(CadastrarCandidato);
+        jBPrincipal.add(CadastrarCandidato);
         CadastrarCandidato.setBounds(70, 430, 280, 40);
 
         jBLimparBase.setText("Limpar Base de Dados");
         jBLimparBase.setToolTipText("");
-        jBLimparBase.setActionCommand("Limpar Base de Dados");
-        jBUrna.add(jBLimparBase);
+        jBPrincipal.add(jBLimparBase);
         jBLimparBase.setBounds(70, 500, 280, 40);
 
         jBRelatorio.setText("Relatório");
         jBRelatorio.setToolTipText("");
-        jBUrna.add(jBRelatorio);
+        jBRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRelatorioActionPerformed(evt);
+            }
+        });
+        jBPrincipal.add(jBRelatorio);
         jBRelatorio.setBounds(70, 360, 130, 40);
 
-        jButton1.setText("Urna");
-        jBUrna.add(jButton1);
-        jButton1.setBounds(220, 360, 130, 40);
+        jBUrnaElectronica.setText("Urna");
+        jBUrnaElectronica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBUrnaElectronicaActionPerformed(evt);
+            }
+        });
+        jBPrincipal.add(jBUrnaElectronica);
+        jBUrnaElectronica.setBounds(220, 360, 130, 40);
 
         jBSair.setText("Sair");
-        jBUrna.add(jBSair);
+        jBPrincipal.add(jBSair);
         jBSair.setBounds(270, 563, 80, 40);
 
         fileMenu.setMnemonic('f');
@@ -146,11 +155,11 @@ public class MenuView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBUrna, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .addComponent(jBPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBUrna, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+            .addComponent(jBPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
         );
 
         pack();
@@ -163,9 +172,23 @@ public class MenuView extends javax.swing.JFrame {
     private void CadastrarCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarCandidatoActionPerformed
         // TODO add your handling code here:
         CadastrarCandidato telaCadastrar = new CadastrarCandidato();
-        this.jBUrna.add(telaCadastrar);
+        this.jBPrincipal.add(telaCadastrar);
         telaCadastrar.setVisible(true);
     }//GEN-LAST:event_CadastrarCandidatoActionPerformed
+
+    private void jBUrnaElectronicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUrnaElectronicaActionPerformed
+        // TODO add your handling code here:
+        UrnaEletronica urna = new UrnaEletronica();
+       this.jBPrincipal.add(urna);
+       urna.setVisible(true);
+    }//GEN-LAST:event_jBUrnaElectronicaActionPerformed
+
+    private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed
+        // TODO add your handling code here:
+        Relatorio relatorio = new Relatorio();
+        this.jBPrincipal.add(relatorio);
+        relatorio.setVisible(true);
+    }//GEN-LAST:event_jBRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,10 +237,10 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton jBLimparBase;
+    private javax.swing.JDesktopPane jBPrincipal;
     private javax.swing.JButton jBRelatorio;
     private javax.swing.JButton jBSair;
-    private javax.swing.JDesktopPane jBUrna;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBUrnaElectronica;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

@@ -11,16 +11,30 @@ import controller.CandidatoControlle;
  * @author Rafael
  */
 public class CadastrarCandidato extends javax.swing.JInternalFrame {
-
+ private CandidatoControlle candidatoController;
    
     /**
      * Creates new form CadastrarCandidato
      */
-    public CadastrarCandidato() {       
+    public CadastrarCandidato(){ 
+        this.candidatoController = new CandidatoControlle();
         initComponents();
     }
     
+    public void Salvar(){
+        candidatoController.candidato.setNome(jTNome.getText());
+        candidatoController.candidato.setCargo(jTCargo.getText());
+        candidatoController.candidato.setNumero(Integer.parseInt(jTNumero.getText()));
+        
+        
+        candidatoController.Salvar(candidatoController.candidato);
+    }
     
+    public void LimparCampos(){
+        jTNome.setText("");
+        jTNumero.setText("");
+        jTCargo.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +46,8 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jTNome = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTCargo = new javax.swing.JTextField();
+        jTNumero = new javax.swing.JTextField();
         jLNome = new javax.swing.JLabel();
         jLCargo = new javax.swing.JLabel();
         jLNumero = new javax.swing.JLabel();
@@ -48,6 +62,11 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
         jLNumero.setText("Numero");
 
         jBSalvar.setText("Salvar");
+        jBSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalvarActionPerformed(evt);
+            }
+        });
 
         jBSair.setText("Sair");
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -72,10 +91,10 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
                     .addComponent(jLNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTCargo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBSalvar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -96,11 +115,11 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
                     .addComponent(jLNome))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLCargo))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNumero))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -117,6 +136,12 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBSairActionPerformed
 
+    private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
+        // TODO add your handling code here:
+        Salvar();
+        LimparCampos();
+    }//GEN-LAST:event_jBSalvarActionPerformed
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -126,8 +151,8 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLNome;
     private javax.swing.JLabel jLNumero;
     private javax.swing.JLabel jLTituloTela;
+    private javax.swing.JTextField jTCargo;
     private javax.swing.JTextField jTNome;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTNumero;
     // End of variables declaration//GEN-END:variables
 }

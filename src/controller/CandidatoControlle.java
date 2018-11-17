@@ -7,6 +7,7 @@ package controller;
 
 import Domain.Candidato;
 import dao.CandidatoDAO;
+import view.CadastrarCandidato;
 
 /**
  *
@@ -15,23 +16,22 @@ import dao.CandidatoDAO;
 public class CandidatoControlle {
     
     private CandidatoDAO candidatoDAO;
-    private Candidato candidato;
+    public Candidato candidato;
 
-    public CandidatoControlle() throws ClassNotFoundException {
-        this.candidatoDAO = new CandidatoDAO();
+    public CandidatoControlle() {
+        this.candidatoDAO = new CandidatoDAO(); 
         this.candidato = new Candidato();
-    }  
-
-    public Candidato getCandidato() {
-        return candidato;
-    }
-
-    public void setCandidato(Candidato candidato) {
-        this.candidato = candidato;
+    } 
+    
+    public Candidato BuscarCandidato(int numero){
+        
+        Candidato c = new Candidato();
+        c = candidatoDAO.BuscarCandidato(numero);
+        return c;
     }
        
-    public void Salvar(){
-       candidatoDAO.adicionaCandidato(candidato);
+    public void Salvar(Candidato c){
+       candidatoDAO.adicionaCandidato(c);
     }
 
     public CandidatoDAO getCandidatoDAO() {

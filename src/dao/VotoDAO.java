@@ -7,9 +7,11 @@ package dao;
 
 import Domain.Voto;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -19,20 +21,20 @@ import java.util.List;
 public class VotoDAO {
     private Connection conexao;
 
-    public VotoDAO() throws ClassNotFoundException {
+    public VotoDAO(){
         this.conexao = new ConnectionFactory().getConnection();
     }
     
     public void AdicionarVoto(Voto voto){
-         String sql = "INSERT INTO voto (nome,numero, cargo) VALUES(?, ?, ?);";
+         String sql = "INSERT INTO voto ( valorVoto, idCandidato, dataVoto ) VALUES(?, ?, ?);";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
                
-              // pstmt.setString(1, candidato.getNome());
-              // pstmt.setInt(2, candidato.getNumero());
-              // pstmt.setString(3, candidato.getCargo());
-              // pstmt.setByte(4, candidato.getFoto());
+               pstmt.setInt(1, voto.getValorVoto());
+               pstmt.setLong(2, 2);             
+               
+               pstmt.setDate(3, new Date(voto.getDataVoto().getTimeInMillis()));
               
               pstmt.execute();
               pstmt.close();
@@ -72,4 +74,19 @@ public class VotoDAO {
                throw new RuntimeException(e);
            }
     }
+    
+    public void DeleteTodos(){
+         String sql = "Delete from voto;";
+           
+           try {
+               PreparedStatement pstmt =  conexao.prepareStatement(sql); 
+               
+              pstmt.execute();
+              pstmt.close();
+               
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           } 
+    }
+
 }

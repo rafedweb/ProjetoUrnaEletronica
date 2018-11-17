@@ -20,7 +20,7 @@ public class CandidatoDAO {
     
     private Connection conexao;
 
-    public CandidatoDAO() throws ClassNotFoundException {
+    public CandidatoDAO(){
         this.conexao = new ConnectionFactory().getConnection();
     }
 
@@ -81,6 +81,54 @@ public class CandidatoDAO {
            
        }
    
+       public void DeletaTodos(){
+             String sql = "DELETE FROM candidato;";
+           
+           try {
+               PreparedStatement pstmt =  conexao.prepareStatement(sql);
+                             
+              
+              pstmt.execute();
+              pstmt.close();
+               
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+       }
        
-       
+       public Candidato BuscarCandidato(int numeroCandidato){
+               try {
+               PreparedStatement pstmt = conexao.prepareStatement("select * from candidato WHERE numero=?");
+               
+               pstmt.setInt(1, numeroCandidato);
+               
+               Candidato candidato = null;
+               ResultSet rs = pstmt.executeQuery();
+               
+               if(rs.next()) {
+                  
+                   //Long id = rs.getLong("id");
+                   String nome = rs.getString("nome");
+                   Integer numero = rs.getInt("numero");
+                   String cargo = rs.getString("cargo");
+                   Byte foto = rs.getByte("foto");                   
+                   
+                   candidato = new Candidato();
+                   //candidato.setId(id);
+                   candidato.setNome(nome);
+                   candidato.setNumero(numero);
+                   candidato.setCargo(cargo);
+                   candidato.setFoto(foto);
+                                                     
+                   
+                                    
+               }
+               rs.close();
+               pstmt.close();
+               return candidato;
+               
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+       }
 }
