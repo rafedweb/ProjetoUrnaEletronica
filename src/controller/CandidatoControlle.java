@@ -33,6 +33,10 @@ public class CandidatoControlle {
     public void Salvar(Candidato c){
        candidatoDAO.adicionaCandidato(c);
     }
+    
+    public void Limpar(){
+        candidatoDAO.DeletaTodos();
+    }
 
     public CandidatoDAO getCandidatoDAO() {
         return candidatoDAO;

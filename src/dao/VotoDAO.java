@@ -76,10 +76,12 @@ public class VotoDAO {
     }
     
     public void DeleteTodos(){
-         String sql = "Delete from voto;";
+         String sql = "Delete from voto where idVoto > ?;";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql); 
+               
+               pstmt.setInt(1, 0);
                
               pstmt.execute();
               pstmt.close();

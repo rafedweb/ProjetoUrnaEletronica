@@ -82,11 +82,11 @@ public class CandidatoDAO {
        }
    
        public void DeletaTodos(){
-             String sql = "DELETE FROM candidato;";
+             String sql = "DELETE FROM candidato where idCandidato > ?;";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
-                             
+                 pstmt.setInt(1, 0);
               
               pstmt.execute();
               pstmt.close();

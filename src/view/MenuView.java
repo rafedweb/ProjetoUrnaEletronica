@@ -5,16 +5,23 @@
  */
 package view;
 
+import controller.CandidatoControlle;
+import controller.VotoControlle;
+
 /**
  *
  * @author Rafael
  */
 public class MenuView extends javax.swing.JFrame {
 
+    private CandidatoControlle candidatoController;
+     private VotoControlle votoController;
     /**
      * Creates new form MenuView
      */
     public MenuView() {
+        this.candidatoController = new CandidatoControlle();
+        this.votoController = new VotoControlle();
         initComponents();
     }
 
@@ -62,6 +69,11 @@ public class MenuView extends javax.swing.JFrame {
 
         jBLimparBase.setText("Limpar Base de Dados");
         jBLimparBase.setToolTipText("");
+        jBLimparBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimparBaseActionPerformed(evt);
+            }
+        });
         jBPrincipal.add(jBLimparBase);
         jBLimparBase.setBounds(70, 500, 280, 40);
 
@@ -189,6 +201,13 @@ public class MenuView extends javax.swing.JFrame {
         this.jBPrincipal.add(relatorio);
         relatorio.setVisible(true);
     }//GEN-LAST:event_jBRelatorioActionPerformed
+
+    private void jBLimparBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparBaseActionPerformed
+        // TODO add your handling code here:
+        votoController.Limpar();
+        candidatoController.Limpar();
+        
+    }//GEN-LAST:event_jBLimparBaseActionPerformed
 
     /**
      * @param args the command line arguments

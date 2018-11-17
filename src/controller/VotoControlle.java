@@ -37,4 +37,8 @@ public class VotoControlle {
         c =  candidatoDAO.BuscarCandidato(numero);       
         return c;
     }
+    
+    public void Limpar(){
+        votoDAO.DeleteTodos();
+    }
 }
