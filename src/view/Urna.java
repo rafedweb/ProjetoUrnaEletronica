@@ -263,6 +263,7 @@ public class Urna extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTextPane1);
 
         jTNome.setEditable(false);
+        jTNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -466,7 +467,11 @@ public class Urna extends javax.swing.JPanel {
 
     private void jBBRANCOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBRANCOActionPerformed
         // TODO add your handling code here:
-        votoController.voto.setValorVoto(100);
+        
+        jTDigitoUM.setText("0");
+        jTDigitoDOIS.setText("0"); 
+        
+        votoController.voto.setValorVoto(00);
         votoController.voto.setDataVoto(Calendar.getInstance());
         votoController.candidato = null;
         votoController.Votar();
@@ -481,6 +486,11 @@ public class Urna extends javax.swing.JPanel {
             int valor = Integer.parseInt(numero);
             
            votoController.candidato = candidatoController.BuscarCandidato(valor);
+           
+            if (votoController.candidato == null) { 
+                //valor 1 significa voto nulo
+                valor = 1;
+            }
            votoController.voto.setValorVoto(valor);
            votoController.voto.setDataVoto(Calendar.getInstance());
            votoController.Votar();
@@ -494,8 +504,11 @@ public class Urna extends javax.swing.JPanel {
             
            votoController.candidato = candidatoController.BuscarCandidato(valor);
            
-           jTNome.setText(votoController.candidato.getNome());
-           jTCargo.setText(votoController.candidato.getCargo());
+           if (votoController.candidato != null) {
+            jTNome.setText(votoController.candidato.getNome());
+            jTCargo.setText(votoController.candidato.getCargo());
+           }
+           
     } 
     
     private void LimparCampos(){
