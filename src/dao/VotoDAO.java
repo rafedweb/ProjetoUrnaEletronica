@@ -32,7 +32,7 @@ public class VotoDAO {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
                
                pstmt.setInt(1, voto.getValorVoto());
-               pstmt.setLong(2, 2);             
+               pstmt.setLong(2, voto.getCandidato().getId());             
                
                pstmt.setDate(3, new Date(voto.getDataVoto().getTimeInMillis()));
               
@@ -54,14 +54,14 @@ public class VotoDAO {
                
                while (rs.next()) {
                   
-                   //Long id = rs.getLong("id");
-                   String nome = rs.getString("nome");
-                   Integer numero = rs.getInt("numero");
-                   String cargo = rs.getString("cargo");
-                   Byte foto = rs.getByte("foto");                   
-                   
+                   Long id = rs.getLong("idVoto");
+                   Integer numero = rs.getInt("valorVoto");
+                   Date dataVoto = rs.getDate("dataVoto");
+                                    
                    voto = new Voto();
-                   //voto.setId(id);                   
+                   voto.setId(id);
+                   //voto.setDataVoto(dataVoto);
+                   voto.setValorVoto(numero);
                                                      
                    
                    votos.add(voto);                   
@@ -76,10 +76,12 @@ public class VotoDAO {
     }
     
     public void DeleteTodos(){
-         String sql = "Delete from voto;";
+         String sql = "Delete from voto where idVoto > ?;";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql); 
+               
+               pstmt.setInt(1, 0);
                
               pstmt.execute();
               pstmt.close();

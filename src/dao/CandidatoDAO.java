@@ -55,14 +55,14 @@ public class CandidatoDAO {
                
                while (rs.next()) {
                   
-                   //Long id = rs.getLong("id");
+                   Long id = rs.getLong("idCandidato");
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
                    Byte foto = rs.getByte("foto");                   
                    
                    candidato = new Candidato();
-                   //candidato.setId(id);
+                   candidato.setId(id);
                    candidato.setNome(nome);
                    candidato.setNumero(numero);
                    candidato.setCargo(cargo);
@@ -82,11 +82,11 @@ public class CandidatoDAO {
        }
    
        public void DeletaTodos(){
-             String sql = "DELETE FROM candidato;";
+             String sql = "DELETE FROM candidato where idCandidato > ?;";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
-                             
+                 pstmt.setInt(1, 0);
               
               pstmt.execute();
               pstmt.close();
@@ -107,14 +107,14 @@ public class CandidatoDAO {
                
                if(rs.next()) {
                   
-                   //Long id = rs.getLong("id");
+                   Long id = rs.getLong("idCandidato");
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
                    Byte foto = rs.getByte("foto");                   
                    
                    candidato = new Candidato();
-                   //candidato.setId(id);
+                   candidato.setId(id);
                    candidato.setNome(nome);
                    candidato.setNumero(numero);
                    candidato.setCargo(cargo);
