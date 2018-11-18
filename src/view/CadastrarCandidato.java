@@ -5,6 +5,7 @@
  */
 package view;
 import controller.CandidatoControlle;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -13,6 +14,8 @@ import controller.CandidatoControlle;
 public class CadastrarCandidato extends javax.swing.JInternalFrame {
  private CandidatoControlle candidatoController;
    
+ 
+    BufferedImage foto;
     /**
      * Creates new form CadastrarCandidato
      */

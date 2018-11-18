@@ -32,7 +32,7 @@ public class VotoDAO {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
                
                pstmt.setInt(1, voto.getValorVoto());
-               pstmt.setLong(2, voto.getCandidato().getId());             
+               pstmt.setLong(2, 0);             
                
                pstmt.setDate(3, new Date(voto.getDataVoto().getTimeInMillis()));
               
