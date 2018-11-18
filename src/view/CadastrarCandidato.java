@@ -6,6 +6,8 @@
 package view;
 import controller.CandidatoControlle;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -58,6 +60,7 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
         jBSair = new javax.swing.JButton();
         jLTituloTela = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLImagem = new javax.swing.JLabel();
         jBBuscar = new javax.swing.JButton();
         jBExcluir = new javax.swing.JButton();
         jBVisualisar = new javax.swing.JButton();
@@ -88,15 +91,23 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLImagem.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jBBuscar.setText("Buscar");
@@ -196,6 +207,16 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
         // TODO add your handling code here:
+        
+        JFileChooser fc = new JFileChooser();
+        int res = fc.showOpenDialog(null);
+        
+        if (res == JFileChooser.APPROVE_OPTION) {
+            File arquivo = fc.getSelectedFile();
+            
+            //foto = arquivo.getAbsoluteFile();            
+            //jLImagem.setIcon(foto);
+        }
         Salvar();
         LimparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
@@ -221,6 +242,7 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jBVisualisar;
     private javax.swing.JLabel jLCargo;
+    private javax.swing.JLabel jLImagem;
     private javax.swing.JLabel jLNome;
     private javax.swing.JLabel jLNumero;
     private javax.swing.JLabel jLTituloTela;
