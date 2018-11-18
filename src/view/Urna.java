@@ -9,6 +9,7 @@ import controller.CandidatoControlle;
 import controller.VotoControlle;
 import java.util.Calendar;
 import javafx.scene.chart.PieChart;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,9 +53,8 @@ public class Urna extends javax.swing.JPanel {
         jBCONFIRMAR = new javax.swing.JButton();
         jBCANCELAR = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jTNome = new javax.swing.JTextField();
+        jLFoto = new javax.swing.JLabel();
         jTDigitoUM = new javax.swing.JTextField();
         jTCargo = new javax.swing.JTextField();
         jTDigitoDOIS = new javax.swing.JTextField();
@@ -259,9 +259,6 @@ public class Urna extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jTextPane1.setEditable(false);
-        jScrollPane1.setViewportView(jTextPane1);
-
         jTNome.setEditable(false);
         jTNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -272,16 +269,18 @@ public class Urna extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jTNome))
+                .addComponent(jTNome, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -480,7 +479,7 @@ public class Urna extends javax.swing.JPanel {
     private void jBCONFIRMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCONFIRMARActionPerformed
         // TODO add your handling code here:
         if ("".equals(jTDigitoUM.getText()) || "".equals(jTDigitoDOIS.getText())) {
-            JOptionPane.showMessageDialog(jTextPane1, "Voto invalido, preencha o número do candidato!");
+            JOptionPane.showMessageDialog(this, "Voto invalido, preencha o número do candidato!");
         }else{
             String numero = jTDigitoUM.getText() + jTDigitoDOIS.getText();
             int valor = Integer.parseInt(numero);
@@ -538,14 +537,13 @@ public class Urna extends javax.swing.JPanel {
     private javax.swing.JButton jBTRES;
     private javax.swing.JButton jBUM;
     private javax.swing.JButton jBZERO;
+    private javax.swing.JLabel jLFoto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTCargo;
     private javax.swing.JTextField jTDigitoDOIS;
     private javax.swing.JTextField jTDigitoUM;
     private javax.swing.JTextField jTNome;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
