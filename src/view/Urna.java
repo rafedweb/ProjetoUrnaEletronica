@@ -7,8 +7,10 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
+import java.awt.Image;
 import java.util.Calendar;
 import javafx.scene.chart.PieChart;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -259,9 +261,12 @@ public class Urna extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         jTNome.setEditable(false);
         jTNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -269,7 +274,7 @@ public class Urna extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTNome, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addComponent(jTNome, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -506,6 +511,10 @@ public class Urna extends javax.swing.JPanel {
            if (votoController.candidato != null) {
             jTNome.setText(votoController.candidato.getNome());
             jTCargo.setText(votoController.candidato.getCargo());
+            
+            ImageIcon imagem = new ImageIcon(votoController.candidato.getFoto());
+            
+            jLFoto.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLFoto.getWidth(), jLFoto.getHeight(), Image.SCALE_DEFAULT)));
            }
            
     } 

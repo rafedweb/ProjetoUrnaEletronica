@@ -26,7 +26,7 @@ public class CandidatoDAO {
 
        public void adicionaCandidato(Candidato candidato){
            
-           String sql = "INSERT INTO candidato (nome,numero, cargo) VALUES(?, ?, ?);";
+           String sql = "INSERT INTO candidato (nome,numero, cargo, foto) VALUES(?, ?, ?, ?);";
            
            try {
                PreparedStatement pstmt =  conexao.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class CandidatoDAO {
                pstmt.setString(1, candidato.getNome());
                pstmt.setInt(2, candidato.getNumero());
                pstmt.setString(3, candidato.getCargo());
-              // pstmt.setByte(4, candidato.getFoto());
+               pstmt.setString(4, candidato.getFoto());
               
               pstmt.execute();
               pstmt.close();
@@ -59,7 +59,7 @@ public class CandidatoDAO {
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
-                   byte[] foto = rs.getBytes("foto");                   
+                   String foto = rs.getString("foto");                   
                    
                    candidato = new Candidato();
                    candidato.setId(id);
@@ -111,7 +111,7 @@ public class CandidatoDAO {
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
-                   byte[] foto = rs.getBytes("foto");                   
+                   String foto = rs.getString("foto");                   
                    
                    candidato = new Candidato();
                    candidato.setId(id);

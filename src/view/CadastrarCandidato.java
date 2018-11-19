@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
@@ -225,10 +227,11 @@ import javax.swing.JFileChooser;
     }//GEN-LAST:event_jBSairActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        // TODO add your handling code here:       
-      
+        // TODO add your handling code here:         
+        
         Salvar();
-        LimparCampos();
+        LimparCampos();  
+       
     }//GEN-LAST:event_jBSalvarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -245,21 +248,23 @@ import javax.swing.JFileChooser;
 
     private void jBFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFotoActionPerformed
         // TODO add your handling code here:
-        JFileChooser arquivo = new JFileChooser();
+      JFileChooser arquivo = new JFileChooser();
         arquivo.setDialogTitle("selecione imagem");
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         int opc = arquivo.showOpenDialog(this);
 
-         if(opc == JFileChooser.APPROVE_OPTION){
+         if (opc == JFileChooser.APPROVE_OPTION){
              File file = new File("caminho");
                   file = arquivo.getSelectedFile();
               String filename = file.getAbsolutePath();
+              String nomeArquivo = file.getName();
+               ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
+               jLImagem.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLImagem.getWidth(), jLImagem.getHeight(), Image.SCALE_DEFAULT)));
+                
+               candidatoController.candidato.setFoto(nomeArquivo);
     
-    ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
-    jLImagem.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLImagem.getWidth(), jLImagem.getHeight(), Image.SCALE_DEFAULT)));
-    
-}
+          }
 
     }//GEN-LAST:event_jBFotoActionPerformed
 
