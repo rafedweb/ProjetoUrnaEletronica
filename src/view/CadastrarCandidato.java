@@ -5,19 +5,26 @@
  */
 package view;
 import controller.CandidatoControlle;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 /**
  *
  * @author Rafael
  */
-public class CadastrarCandidato extends javax.swing.JInternalFrame {
+ public class CadastrarCandidato extends javax.swing.JInternalFrame {
  private CandidatoControlle candidatoController;
    
  
-    BufferedImage foto;
     /**
      * Creates new form CadastrarCandidato
      */
@@ -39,6 +46,7 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
         jTNome.setText("");
         jTNumero.setText("");
         jTCargo.setText("");
+        jLImagem.setText(null);
     }
 
     /**
@@ -99,15 +107,15 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addComponent(jLImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(522, 522, 522))
         );
 
         jBBuscar.setText("Buscar");
@@ -185,8 +193,8 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLNumero)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +202,7 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
                         .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBVisualisar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -206,17 +214,8 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSairActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        // TODO add your handling code here:
-        
-        JFileChooser fc = new JFileChooser();
-        int res = fc.showOpenDialog(null);
-        
-        if (res == JFileChooser.APPROVE_OPTION) {
-            File arquivo = fc.getSelectedFile();
-            
-            //foto = arquivo.getAbsoluteFile();            
-            //jLImagem.setIcon(foto);
-        }
+        // TODO add your handling code here:       
+      
         Salvar();
         LimparCampos();
     }//GEN-LAST:event_jBSalvarActionPerformed
@@ -233,7 +232,15 @@ public class CadastrarCandidato extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBVisualisarActionPerformed
 
-
+    public byte[] imageToByte(String image) throws IOException {
+           InputStream is = null;
+           byte[] buffer = null;
+           is = new FileInputStream(image);
+           buffer = new byte[is.available()];
+           is.read(buffer);
+           is.close();
+           return buffer;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;

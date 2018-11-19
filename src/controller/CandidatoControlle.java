@@ -7,6 +7,7 @@ package controller;
 
 import Domain.Candidato;
 import dao.CandidatoDAO;
+import java.util.List;
 import view.CadastrarCandidato;
 
 /**
@@ -27,6 +28,12 @@ public class CandidatoControlle {
         
         Candidato c = new Candidato();
         c = candidatoDAO.BuscarCandidato(numero);
+        return c;
+    }
+    
+    public List<Candidato> BuscarTodos(){
+        
+       List<Candidato> c  = candidatoDAO.GetCandidato();
         return c;
     }
        
