@@ -59,7 +59,7 @@ public class CandidatoDAO {
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
-                   Byte foto = rs.getByte("foto");                   
+                   byte[] foto = rs.getBytes("foto");                   
                    
                    candidato = new Candidato();
                    candidato.setId(id);
@@ -111,7 +111,7 @@ public class CandidatoDAO {
                    String nome = rs.getString("nome");
                    Integer numero = rs.getInt("numero");
                    String cargo = rs.getString("cargo");
-                   Byte foto = rs.getByte("foto");                   
+                   byte[] foto = rs.getBytes("foto");                   
                    
                    candidato = new Candidato();
                    candidato.setId(id);

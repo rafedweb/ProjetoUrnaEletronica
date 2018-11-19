@@ -15,7 +15,7 @@ public class Candidato {
     private String nome;
     private Integer numero;
     private String cargo;
-    private byte foto;
+    private byte[] foto;
 
     public Long getId() {
         return id;
@@ -49,11 +49,11 @@ public class Candidato {
         this.cargo = cargo;
     }
 
-    public byte getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(byte foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
     
