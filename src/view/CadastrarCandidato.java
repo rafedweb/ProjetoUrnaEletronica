@@ -6,12 +6,10 @@
 package view;
 import controller.CandidatoControlle;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -51,6 +49,7 @@ import javax.swing.JFileChooser;
         jTNumero.setText("");
         jTCargo.setText("");
         jLImagem.setText(null);
+        jLImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/semFoto.jpg")));
     }
 
     /**
@@ -76,6 +75,7 @@ import javax.swing.JFileChooser;
         jBBuscar = new javax.swing.JButton();
         jBExcluir = new javax.swing.JButton();
         jBVisualisar = new javax.swing.JButton();
+        jBFoto = new javax.swing.JButton();
 
         jLNome.setText("Nome:");
 
@@ -103,6 +103,7 @@ import javax.swing.JFileChooser;
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/semFoto.jpg"))); // NOI18N
         jLImagem.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -143,6 +144,14 @@ import javax.swing.JFileChooser;
             }
         });
 
+        jBFoto.setText("Foto");
+        jBFoto.setToolTipText("");
+        jBFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFotoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,18 +173,20 @@ import javax.swing.JFileChooser;
                                 .addComponent(jLTituloTela, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBVisualisar, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBVisualisar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,15 +209,17 @@ import javax.swing.JFileChooser;
                             .addComponent(jTNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLNumero)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBVisualisar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBVisualisar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -218,10 +231,11 @@ import javax.swing.JFileChooser;
     }//GEN-LAST:event_jBSairActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        // TODO add your handling code here:       
-      
+        // TODO add your handling code here:         
+        
         Salvar();
-        LimparCampos();
+        LimparCampos();  
+       
     }//GEN-LAST:event_jBSalvarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -239,6 +253,28 @@ import javax.swing.JFileChooser;
         //consultacandidato.setVisible(true);
     }//GEN-LAST:event_jBVisualisarActionPerformed
 
+    private void jBFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFotoActionPerformed
+        // TODO add your handling code here:
+      JFileChooser arquivo = new JFileChooser();
+        arquivo.setDialogTitle("selecione imagem");
+        arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        int opc = arquivo.showOpenDialog(this);
+
+         if (opc == JFileChooser.APPROVE_OPTION){
+             File file = new File("caminho");
+                  file = arquivo.getSelectedFile();
+              String filename = file.getAbsolutePath();
+             // String nomeArquivo = file.getName();
+               ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
+               jLImagem.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLImagem.getWidth(), jLImagem.getHeight(), Image.SCALE_DEFAULT)));
+                
+               candidatoController.candidato.setFoto(filename);
+    
+          }
+
+    }//GEN-LAST:event_jBFotoActionPerformed
+
     public byte[] imageToByte(String image) throws IOException {
            InputStream is = null;
            byte[] buffer = null;
@@ -252,6 +288,7 @@ import javax.swing.JFileChooser;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBExcluir;
+    private javax.swing.JButton jBFoto;
     private javax.swing.JButton jBSair;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jBVisualisar;
