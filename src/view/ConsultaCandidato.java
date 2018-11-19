@@ -5,16 +5,23 @@
  */
 package view;
 
+import controller.CandidatoControlle;
+
 /**
  *
  * @author giliarde
  */
 public class ConsultaCandidato extends javax.swing.JInternalFrame {
 
+    private CandidatoControlle candidatoController;
+    
     /**
      * Creates new form ConsultaCandidato
      */
     public ConsultaCandidato() {
+        //this.candidatoController = new CandidatoControlle();
+        //candidatoController.candidato.getNome(jScrollPane1.);
+        
         initComponents();
     }
 
