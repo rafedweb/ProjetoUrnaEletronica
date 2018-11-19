@@ -258,11 +258,11 @@ import javax.swing.JFileChooser;
              File file = new File("caminho");
                   file = arquivo.getSelectedFile();
               String filename = file.getAbsolutePath();
-              String nomeArquivo = file.getName();
+             // String nomeArquivo = file.getName();
                ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
                jLImagem.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLImagem.getWidth(), jLImagem.getHeight(), Image.SCALE_DEFAULT)));
                 
-               candidatoController.candidato.setFoto(nomeArquivo);
+               candidatoController.candidato.setFoto(filename);
     
           }
 
