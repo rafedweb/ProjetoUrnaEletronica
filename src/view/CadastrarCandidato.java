@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
 
 /**
@@ -28,8 +29,11 @@ import javax.swing.JFileChooser;
     /**
      * Creates new form CadastrarCandidato
      */
+     
     public CadastrarCandidato(){ 
         this.candidatoController = new CandidatoControlle();
+        
+        
         initComponents();
     }
     
@@ -229,7 +233,10 @@ import javax.swing.JFileChooser;
     }//GEN-LAST:event_jBExcluirActionPerformed
 
     private void jBVisualisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVisualisarActionPerformed
-        // TODO add your handling code here:
+        
+       // ConsultaCandidato consultacandidato = new ConsultaCandidato();
+        //CadastrarCandidato.add(consultacandidato);
+        //consultacandidato.setVisible(true);
     }//GEN-LAST:event_jBVisualisarActionPerformed
 
     public byte[] imageToByte(String image) throws IOException {
