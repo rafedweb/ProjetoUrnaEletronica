@@ -7,6 +7,7 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -183,6 +184,7 @@ public class MenuView extends javax.swing.JFrame {
 
     private void CadastrarCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarCandidatoActionPerformed
         // TODO add your handling code here:
+        
         CadastrarCandidato telaCadastrar = new CadastrarCandidato();
         this.jBPrincipal.add(telaCadastrar);
         telaCadastrar.setVisible(true);

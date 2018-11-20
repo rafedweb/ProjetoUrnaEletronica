@@ -5,7 +5,12 @@
  */
 package view;
 
+import Domain.Candidato;
 import controller.CandidatoControlle;
+import java.awt.BorderLayout;
+import java.util.List;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,10 +24,19 @@ public class ConsultaCandidato extends javax.swing.JInternalFrame {
      * Creates new form ConsultaCandidato
      */
     public ConsultaCandidato() {
-        //this.candidatoController = new CandidatoControlle();
-        //candidatoController.candidato.getNome(jScrollPane1.);
+        this.candidatoController = new CandidatoControlle();       
         
         initComponents();
+    }
+    
+    private void PreecherTabelar(){
+        String[] nomesColunas = {"candidato", "numero", "CargoEletivo"};
+        List<Candidato> lista = candidatoController.BuscarTodos();         
+        DefaultTableModel model = new DefaultTableModel(
+        lista.toArray(new String[lista.size()][]), nomesColunas);
+        
+        jTCandidatosCadastrados.setModel(model);
+        jPCandidadosCadastrados.add(new JScrollPane(jTCandidatosCadastrados), BorderLayout.CENTER);
     }
 
     /**
