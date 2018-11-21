@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import Domain.Candidato;
@@ -10,10 +6,7 @@ import Domain.Voto;
 import dao.CandidatoDAO;
 import dao.VotoDAO;
 
-/**
- *
- * @author Rafael
- */
+
 public class VotoControlle {
     
     private VotoDAO votoDAO;

@@ -11,7 +11,7 @@ import javax.swing.JDesktopPane;
 
 /**
  *
- * @author Rafael
+ * @author giliarde
  */
 public class MenuView extends javax.swing.JFrame {
 
@@ -23,7 +23,11 @@ public class MenuView extends javax.swing.JFrame {
     public MenuView() {
         this.candidatoController = new CandidatoControlle();
         this.votoController = new VotoControlle();
+        Login lg = new Login();
+        
         initComponents();
+        this.jBPrincipal.add(lg);                
+        lg.setVisible(true);
     }
 
     /**
@@ -98,6 +102,11 @@ public class MenuView extends javax.swing.JFrame {
         jBUrnaElectronica.setBounds(220, 360, 130, 40);
 
         jBSair.setText("Sair");
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
         jBPrincipal.add(jBSair);
         jBSair.setBounds(270, 563, 80, 40);
 
@@ -195,6 +204,7 @@ public class MenuView extends javax.swing.JFrame {
         UrnaEletronica urna = new UrnaEletronica();
        this.jBPrincipal.add(urna);
        urna.setVisible(true);
+       urna.setLocation(340,0);
     }//GEN-LAST:event_jBUrnaElectronicaActionPerformed
 
     private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed
@@ -210,6 +220,10 @@ public class MenuView extends javax.swing.JFrame {
         candidatoController.Limpar();
         
     }//GEN-LAST:event_jBLimparBaseActionPerformed
+
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSairActionPerformed
 
     /**
      * @param args the command line arguments

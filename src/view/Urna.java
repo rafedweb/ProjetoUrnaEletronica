@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafael
+ * @author Neto
  */
 public class Urna extends javax.swing.JPanel {
 
@@ -524,6 +524,7 @@ public class Urna extends javax.swing.JPanel {
         jTDigitoDOIS.setText("");
         jTCargo.setText("");
         jTNome.setText("");
+        jLFoto.setIcon(null);
     }
     
     private void jBCANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCANCELARActionPerformed

@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Rafael
+ * @author Neto
  */
 public class UrnaEletronica extends javax.swing.JInternalFrame {
 
