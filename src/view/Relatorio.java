@@ -6,16 +6,29 @@
 
 package view;
 
+import controller.CandidatoControlle;
+import controller.VotoControlle;
+
 /**
  *
  * @author giliarde
  */
 public class Relatorio extends javax.swing.JInternalFrame {
 
+     private CandidatoControlle candidatoController;
+     private VotoControlle votoController;
+    
     /** Creates new form Relatorio */
     public Relatorio() {
+        this.candidatoController = new CandidatoControlle();
+        this.votoController = new VotoControlle();
+        
+        
+        
         initComponents();
     }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.

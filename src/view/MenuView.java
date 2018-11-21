@@ -7,6 +7,9 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 
 /**
@@ -23,8 +26,13 @@ public class MenuView extends javax.swing.JFrame {
     public MenuView() {
         this.candidatoController = new CandidatoControlle();
         this.votoController = new VotoControlle();
+<<<<<<< HEAD
         Login lg = new Login();
         
+=======
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH);        
+>>>>>>> 0264853c4f4c8aadc6768a52e593c35a3a27bdc5
         initComponents();
         this.jBPrincipal.add(lg);                
         lg.setVisible(true);
@@ -203,6 +211,11 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
         UrnaEletronica urna = new UrnaEletronica();
        this.jBPrincipal.add(urna);
+        try {
+            urna.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
        urna.setVisible(true);
        urna.setLocation(340,0);
     }//GEN-LAST:event_jBUrnaElectronicaActionPerformed
@@ -210,7 +223,7 @@ public class MenuView extends javax.swing.JFrame {
     private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed
         // TODO add your handling code here:
         Relatorio relatorio = new Relatorio();
-        this.jBPrincipal.add(relatorio);
+        this.jBPrincipal.add(relatorio);      
         relatorio.setVisible(true);
     }//GEN-LAST:event_jBRelatorioActionPerformed
 

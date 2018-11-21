@@ -227,6 +227,16 @@ import javax.swing.JFileChooser;
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
+      candidatoController.candidato = candidatoController.BuscarCandidato(Integer.parseInt(jTNumero.getText()));
+       if (candidatoController.candidato != null) {
+            jTNome.setText(candidatoController.candidato.getNome());
+            jTCargo.setText(candidatoController.candidato.getCargo());
+            
+            ImageIcon imagem = new ImageIcon(candidatoController.candidato.getFoto());
+            
+            jLImagem.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLImagem.getWidth(), jLImagem.getHeight(), Image.SCALE_DEFAULT)));
+           }      
+      
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed

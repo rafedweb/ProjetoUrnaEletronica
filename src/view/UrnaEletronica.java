@@ -15,6 +15,9 @@ public class UrnaEletronica extends javax.swing.JInternalFrame {
      * Creates new form UrnaEletronica
      */
     public UrnaEletronica() {
+        Urna urna = new Urna();
+        this.add(urna);
+        urna.setVisible(true);
         initComponents();
     }
 
@@ -27,26 +30,14 @@ public class UrnaEletronica extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        urna1 = new view.Urna();
-
+        setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(null);
         setClosable(true);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(urna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(urna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.Urna urna1;
     // End of variables declaration//GEN-END:variables
 }
