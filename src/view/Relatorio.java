@@ -11,7 +11,7 @@ import controller.VotoControlle;
 
 /**
  *
- * @author Rafael
+ * @author giliarde
  */
 public class Relatorio extends javax.swing.JInternalFrame {
 

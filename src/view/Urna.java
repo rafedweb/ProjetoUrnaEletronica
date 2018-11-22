@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafael
+ * @author Neto
  */
 public class Urna extends javax.swing.JPanel {
 

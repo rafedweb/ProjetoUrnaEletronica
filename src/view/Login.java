@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author giliarde
@@ -33,7 +35,7 @@ public class Login extends javax.swing.JInternalFrame {
         jLUsuario = new javax.swing.JLabel();
         jLSenha = new javax.swing.JLabel();
         jBEntrar = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPSenha = new javax.swing.JPasswordField();
 
         jPLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
@@ -66,6 +68,11 @@ public class Login extends javax.swing.JInternalFrame {
         jLSenha.setText("Senha :");
 
         jBEntrar.setText("Entrar");
+        jBEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +95,7 @@ public class Login extends javax.swing.JInternalFrame {
                                 .addGap(87, 87, 87)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))
+                            .addComponent(jPSenha))
                         .addGap(51, 51, 51)
                         .addComponent(jBEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))))
@@ -107,7 +114,7 @@ public class Login extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLSenha)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPasswordField1)
+                                .addComponent(jPSenha)
                                 .addGap(1, 1, 1))))
                     .addComponent(jBEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -116,6 +123,18 @@ public class Login extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
+        // TODO add your handling code here:
+        
+        if(jTUsuario.getText().equals("admin")& jPSenha.getPassword().equals("admin")){
+           
+            
+        }else { 
+            JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
+
+				}
+    }//GEN-LAST:event_jBEntrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBEntrar;
@@ -123,7 +142,7 @@ public class Login extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLTituloLogin;
     private javax.swing.JLabel jLUsuario;
     private javax.swing.JPanel jPLogin;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPSenha;
     private javax.swing.JTextField jTUsuario;
     // End of variables declaration//GEN-END:variables
 }
