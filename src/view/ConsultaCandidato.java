@@ -8,9 +8,12 @@ package view;
 import Domain.Candidato;
 import controller.CandidatoControlle;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.TableRow;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -25,20 +28,26 @@ public class ConsultaCandidato extends javax.swing.JInternalFrame {
      */
     public ConsultaCandidato() {
         this.candidatoController = new CandidatoControlle();       
-        
+       
         initComponents();
+        DefaultTableModel modelo = (DefaultTableModel) jTCandidatosCadastrados.getModel();
+        jTCandidatosCadastrados.setRowSorter(new TableRowSorter(modelo));
+         readJTable();
     }
     
-    private void PreecherTabelar(){
-        String[] nomesColunas = {"candidato", "numero", "CargoEletivo"};
-        List<Candidato> lista = candidatoController.BuscarTodos();         
-        DefaultTableModel model = new DefaultTableModel(
-        lista.toArray(new String[lista.size()][]), nomesColunas);
-        
-        jTCandidatosCadastrados.setModel(model);
-        jPCandidadosCadastrados.add(new JScrollPane(jTCandidatosCadastrados), BorderLayout.CENTER);
+    public void readJTable(){
+         DefaultTableModel modelo = (DefaultTableModel) jTCandidatosCadastrados.getModel();
+    
+         candidatoController.BuscarTodos().forEach((c) -> {
+             modelo.addRow(new Object[]{
+                 c.getNome(),
+                 c.getNumero(),
+                 c.getCargo()
+             });
+        });
+    
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,14 +88,10 @@ public class ConsultaCandidato extends javax.swing.JInternalFrame {
 
         jPCandidadosCadastrados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jTCandidatosCadastrados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTCandidatosCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Candidato", "Numero", "Cargo Eletivo"

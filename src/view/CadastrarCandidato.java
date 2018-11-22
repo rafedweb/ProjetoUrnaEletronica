@@ -258,9 +258,9 @@ import javax.swing.JFileChooser;
 
     private void jBVisualisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVisualisarActionPerformed
         
-       // ConsultaCandidato consultacandidato = new ConsultaCandidato();
-        //CadastrarCandidato.add(consultacandidato);
-        //consultacandidato.setVisible(true);
+       ConsultaCandidato consultacandidato = new ConsultaCandidato();
+        this.getParent().add(consultacandidato);
+        consultacandidato.setVisible(true);
     }//GEN-LAST:event_jBVisualisarActionPerformed
 
     private void jBFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFotoActionPerformed
