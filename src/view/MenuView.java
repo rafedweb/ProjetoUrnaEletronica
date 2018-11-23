@@ -29,7 +29,10 @@ public class MenuView extends javax.swing.JFrame {
         this.votoController = new VotoControlle();
 
         Login lg = new Login();
+<<<<<<< HEAD
         
+=======
+>>>>>>> 95b14509fb3c37077399a4815e4f754fe91b1248
 
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH);        
