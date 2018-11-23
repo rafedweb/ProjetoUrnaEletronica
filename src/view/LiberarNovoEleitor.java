@@ -34,6 +34,7 @@ public class LiberarNovoEleitor extends javax.swing.JInternalFrame {
         jLResultadoFinal = new javax.swing.JButton();
         jLCodigoSeguranca = new javax.swing.JLabel();
         jTInserirNovoEleitor = new javax.swing.JTextField();
+        jBSair = new javax.swing.JButton();
 
         jLFim.setFont(new java.awt.Font("Tahoma", 0, 200)); // NOI18N
         jLFim.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -65,6 +66,13 @@ public class LiberarNovoEleitor extends javax.swing.JInternalFrame {
 
         jLCodigoSeguranca.setText("Codigo de Segurança");
 
+        jBSair.setText("Sair");
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,6 +92,7 @@ public class LiberarNovoEleitor extends javax.swing.JInternalFrame {
                     .addComponent(jLCodigoSeguranca))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBSair)
                     .addComponent(jLResultadoFinal)
                     .addComponent(jLNovoEleitor))
                 .addGap(331, 331, 331))
@@ -103,14 +112,22 @@ public class LiberarNovoEleitor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLResultadoFinal)
                     .addComponent(jTInserirNovoEleitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBSair)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jBSairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBSair;
     private javax.swing.JLabel jLCodigoSeguranca;
     private javax.swing.JLabel jLFim;
     private javax.swing.JButton jLNovoEleitor;

@@ -11,6 +11,7 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -28,6 +29,10 @@ public class MenuView extends javax.swing.JFrame {
         this.votoController = new VotoControlle();
 
         Login lg = new Login();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 95b14509fb3c37077399a4815e4f754fe91b1248
 
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH);        
@@ -210,13 +215,17 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
         UrnaEletronica urna = new UrnaEletronica();
        this.jBPrincipal.add(urna);
-        try {
+       try {
             urna.setMaximum(true);
+       
+           urna.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+           
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+       }
        urna.setVisible(true);
-       urna.setLocation(340,0);
+       urna.setLocation(0,0);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }//GEN-LAST:event_jBUrnaElectronicaActionPerformed
 
     private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed

@@ -126,8 +126,8 @@ public class Login extends javax.swing.JInternalFrame {
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
         // TODO add your handling code here:
         
-        if(jTUsuario.getText().equals("admin")& jPSenha.getPassword().equals("admin")){
-           
+        if(jTUsuario.getText().equals("admin")& jPSenha.getPassword().equals("")){
+            dispose();
             
         }else { 
             JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);

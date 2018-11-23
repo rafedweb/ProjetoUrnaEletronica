@@ -3,12 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/controller/VotoControlle.java</file>
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/dao/VotoDAO.java</file>
+=======
+            <file>file:/C:/Users/giliarde/Desktop/ProjetoPOO/ProjetoUrnaEletronica/src/view/MenuView.java</file>
+            <file>file:/C:/Users/giliarde/Desktop/ProjetoPOO/ProjetoUrnaEletronica/src/view/Urna.java</file>
+            <file>file:/C:/Users/giliarde/Desktop/ProjetoPOO/ProjetoUrnaEletronica/src/view/UrnaEletronica.java</file>
+<<<<<<< HEAD
+=======
+            <file>file:/C:/Users/giliarde/Desktop/ProjetoPOO/ProjetoUrnaEletronica/src/Domain/Candidato.java</file>
+            <file>file:/C:/Users/giliarde/Desktop/ProjetoPOO/ProjetoUrnaEletronica/src/view/Login.java</file>
+=======
+>>>>>>> 3ad0409ce19a1aa93de91311877ebc9007d7f215
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/view/MenuView.java</file>
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/view/Relatorio.java</file>
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/view/Urna.java</file>
             <file>file:/C:/Users/Rafael/Documents/Projetos/ProjetoUrnaEletronica/src/view/CadastrarCandidato.java</file>
+<<<<<<< HEAD
+=======
+>>>>>>> 0264853c4f4c8aadc6768a52e593c35a3a27bdc5
+>>>>>>> efefb8e8eb8b75b7754c609efd43ea7004ddc950
+>>>>>>> 95b14509fb3c37077399a4815e4f754fe91b1248
+>>>>>>> 3ad0409ce19a1aa93de91311877ebc9007d7f215
         </group>
     </open-files>
 </project-private>
