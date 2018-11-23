@@ -89,6 +89,21 @@ public class CandidatoDAO {
            }
        }
        
+       public void Deleta(int id){
+           
+           String sql = "DELETE FROM candidato where idCandidato = ?;";
+           
+           try {
+               PreparedStatement pstmt =  conexao.prepareStatement(sql);
+                 pstmt.setInt(1, id);
+              
+              pstmt.execute();
+              pstmt.close();
+               
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+       }
        public Candidato BuscarCandidato(int numeroCandidato){
                try {
                PreparedStatement pstmt = conexao.prepareStatement("select * from candidato WHERE numero=?");

@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 
  public class CadastrarCandidato extends javax.swing.JInternalFrame {
@@ -222,6 +223,7 @@ import javax.swing.JFileChooser;
         
         Salvar();
         LimparCampos();  
+        JOptionPane.showMessageDialog(null,"Candidato salvo com sucesso!");
        
     }//GEN-LAST:event_jBSalvarActionPerformed
 
@@ -241,6 +243,10 @@ import javax.swing.JFileChooser;
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
+        
+        Long idCandidato = candidatoController.BuscarCandidato(Integer.parseInt(jTNumero.getText())).getId();
+        candidatoController.RemoveCandidato(Integer.valueOf(idCandidato.toString()));
+        JOptionPane.showMessageDialog(null,"Candidato exlcuido com sucesso!");
     }//GEN-LAST:event_jBExcluirActionPerformed
 
     private void jBVisualisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVisualisarActionPerformed

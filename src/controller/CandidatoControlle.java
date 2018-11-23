@@ -37,6 +37,10 @@ public class CandidatoControlle {
     public void Limpar(){
         candidatoDAO.DeletaTodos();
     }
+    
+    public void RemoveCandidato(int id){
+     candidatoDAO.Deleta(id);
+    }
 
     public CandidatoDAO getCandidatoDAO() {
         return candidatoDAO;

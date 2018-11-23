@@ -34,4 +34,24 @@ public class VotoControlle {
     public void Limpar(){
         votoDAO.DeleteTodos();
     }
+    
+    public int ContarVotos(int valorVoto){
+     return  votoDAO.ContarVotos(valorVoto);
+    }
+    
+    public int ContarVotosNulos(){
+        return votoDAO.ContarVotosNulos();
+    }
+    
+    public int ContarVotosBrancos(){
+        return votoDAO.ContarVotosBrancos();
+    }
+    
+    public int ContarVotosValidos(){
+        return votoDAO.ContarVotosValidos();
+    }
+    
+     public int ContarEleitores(){
+        return votoDAO.ContarEleitores();
+    }
 }

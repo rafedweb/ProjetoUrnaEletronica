@@ -22,13 +22,40 @@ public class Relatorio extends javax.swing.JInternalFrame {
     public Relatorio() {
         this.candidatoController = new CandidatoControlle();
         this.votoController = new VotoControlle();
-        
-        
+               
         
         initComponents();
+        ResultadoEleicao();
     }
     
-    
+    private void ResultadoEleicao(){
+        
+        jTVotosBrancos.setText(String.valueOf(votoController.ContarVotosBrancos()));
+        jTVotosNulos.setText(String.valueOf(votoController.ContarVotosNulos()));
+        jTVotosValidos.setText(String.valueOf(votoController.ContarVotosValidos()));
+        jTEleitores.setText(String.valueOf(votoController.ContarEleitores()));
+        
+        for (int i = 0; i < 6; i++) {
+            if (i == 1) {
+                int qtd = votoController.ContarVotos(77);
+                jTQtdVotos01.setText(String.valueOf(qtd));
+                jTCandidato01.setText("Teste");
+                jTNumCand01.setText("77");
+            }
+             if (i == 2) {
+                int qtd = votoController.ContarVotos(55);
+                jTQtdVotos02.setText(String.valueOf(qtd));
+                jTCandidato02.setText("Teste");
+                jTNumCand02.setText("55");
+            }
+              if (i == 3) {
+                int qtd = votoController.ContarVotos(24);
+                jTQtdVotos03.setText(String.valueOf(qtd));
+                jTCandidato03.setText("Teste");
+                jTNumCand03.setText("24");
+            }
+        }
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
