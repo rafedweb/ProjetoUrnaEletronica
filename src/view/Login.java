@@ -122,7 +122,7 @@ public class Login extends javax.swing.JInternalFrame {
                                 .addComponent(jPSenha)
                                 .addGap(1, 1, 1))))
                     .addComponent(jBEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();

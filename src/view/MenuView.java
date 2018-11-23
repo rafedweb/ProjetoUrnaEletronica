@@ -254,9 +254,23 @@ public class MenuView extends javax.swing.JFrame {
 
     private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed
         // TODO add your handling code here:
-        Relatorio relatorio = new Relatorio();
-        this.jBPrincipal.add(relatorio);      
+        Relatorio relatorio = new Relatorio();      
+        this.jBPrincipal.add(relatorio); 
+        
+       try {
+            relatorio.setMaximum(true);
+       
+           relatorio.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+           
+        } catch (PropertyVetoException ex) {
+           Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+        
         relatorio.setVisible(true);
+        
+
+        
     }//GEN-LAST:event_jBRelatorioActionPerformed
 
     private void jBLimparBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparBaseActionPerformed
