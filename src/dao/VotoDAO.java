@@ -84,4 +84,110 @@ public class VotoDAO {
            } 
     }
 
+    public int ContarVotos(int valorVoto){
+         try {
+               PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto =?");
+               
+                pstmt.setInt(1, valorVoto);           
+              
+             
+               ResultSet rs = pstmt.executeQuery();
+               int quantidade = 0;
+               while (rs.next()) {                  
+                  quantidade = rs.getInt("resultado");                                     
+               }
+               rs.close();
+               pstmt.close();
+               
+               return quantidade;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }         
+         
+    }
+        
+    public int ContarVotosValidos(){
+         try {
+               PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto <>? and valorVoto <> ?");
+               
+                pstmt.setInt(1, 0);           
+                pstmt.setInt(2, 1); 
+             
+               ResultSet rs = pstmt.executeQuery();
+               int quantidade = 0;
+               while (rs.next()) {                  
+                  quantidade = rs.getInt("resultado");                                     
+               }
+               rs.close();
+               pstmt.close();
+               
+               return quantidade;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }         
+         
+    }
+
+    public int ContarVotosNulos(){
+         try {
+               PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto =?");
+               
+                pstmt.setInt(1, 0);
+             
+               ResultSet rs = pstmt.executeQuery();
+               int quantidade = 0;
+               while (rs.next()) {                  
+                  quantidade = rs.getInt("resultado");                                     
+               }
+               rs.close();
+               pstmt.close();
+               
+               return quantidade;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }        
+         
+    }
+    
+    public int ContarVotosBrancos(){
+         try {
+               PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto =?");
+               
+                pstmt.setInt(1, 1);
+             
+               ResultSet rs = pstmt.executeQuery();
+               int quantidade = 0;
+               while (rs.next()) {                  
+                  quantidade = rs.getInt("resultado");                                     
+               }
+               rs.close();
+               pstmt.close();
+               
+               return quantidade;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }         
+         
+    }
+    
+    public int ContarEleitores(){
+         try {
+               PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto;");
+               
+               //pstmt.setInt(1, 1);
+             
+               ResultSet rs = pstmt.executeQuery();
+               int quantidade = 0;
+               while (rs.next()) {                  
+                  quantidade = rs.getInt("resultado");                                     
+               }
+               rs.close();
+               pstmt.close();
+               
+               return quantidade;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }         
+         
+    }
 }
