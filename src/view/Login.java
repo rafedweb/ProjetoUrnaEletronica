@@ -61,6 +61,7 @@ public class Login extends javax.swing.JInternalFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jTUsuario.setText("admin");
         jTUsuario.setPreferredSize(new java.awt.Dimension(30, 20));
 
         jLUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -75,6 +76,8 @@ public class Login extends javax.swing.JInternalFrame {
                 jBEntrarActionPerformed(evt);
             }
         });
+
+        jPSenha.setText("admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,10 +131,10 @@ public class Login extends javax.swing.JInternalFrame {
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
         // TODO add your handling code here:
         
-        if(jTUsuario.getText().equals("admin") && jPSenha.getPassword().equals("admin")){
+        //if(jTUsuario.getText().equals("admin") && jPSenha.getPassword().equals("admin")){
             this.dispose();
             
-        }
+        
        // }else { 
          //   JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
 
