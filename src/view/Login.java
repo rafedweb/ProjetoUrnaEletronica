@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
  * @author giliarde
  */
 public class Login extends javax.swing.JInternalFrame {
+    
+    
+  
+    
 
     /**
      * Creates new form Login
@@ -36,6 +40,8 @@ public class Login extends javax.swing.JInternalFrame {
         jLSenha = new javax.swing.JLabel();
         jBEntrar = new javax.swing.JButton();
         jPSenha = new javax.swing.JPasswordField();
+        jPBarraCarregando = new javax.swing.JProgressBar();
+        jLCarregando = new javax.swing.JLabel();
 
         jPLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
@@ -77,8 +83,6 @@ public class Login extends javax.swing.JInternalFrame {
             }
         });
 
-        jPSenha.setText("admin");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,16 +95,20 @@ public class Login extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLUsuario)
-                                .addGap(72, 72, 72))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLCarregando, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLSenha)
-                                .addGap(87, 87, 87)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                            .addComponent(jPSenha))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLUsuario)
+                                        .addGap(0, 0, 0))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLSenha)
+                                        .addGap(15, 15, 15)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                                    .addComponent(jPSenha)
+                                    .addComponent(jPBarraCarregando, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(51, 51, 51)
                         .addComponent(jBEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))))
@@ -122,7 +130,11 @@ public class Login extends javax.swing.JInternalFrame {
                                 .addComponent(jPSenha)
                                 .addGap(1, 1, 1))))
                     .addComponent(jBEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jPBarraCarregando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLCarregando, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,23 +142,69 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
         // TODO add your handling code here:
+        String usuario = jTUsuario.getText();
+        String senha = String.valueOf(jPSenha.getPassword());
         
-        //if(jTUsuario.getText().equals("admin") && jPSenha.getPassword().equals("admin")){
-            this.dispose();
+        
+        
+        
+        if("admin".equals(usuario) && "admin".equals(senha)){
+            
+            new Thread(){
+                public void run(){
+                
+                    for (int i = 0; i < 101; i++) {
+                        
+                        try {
+                            sleep(100);
+                            jPBarraCarregando.setValue(i);
+                            
+                            if (jPBarraCarregando.getValue()<=25) {
+                                jLCarregando.setText("Carregando Sistema...");
+                            }else if (jPBarraCarregando.getValue()<=25) {
+                                jLCarregando.setText("Carregando Banco de Dados...");
+                            }else if (jPBarraCarregando.getValue()<=50) {
+                                jLCarregando.setText("Efetuando Leitura das Tabelas...");
+                            }else if (jPBarraCarregando.getValue()<=75) {
+                                jLCarregando.setText("Aguarde... O sistema esta Sendo Iniciado!!!");
+                                
+                                
+                            }
+                            
+                        } catch (Exception e) {
+                        }
+                        
+                    }
+                    
+                    
+                    Login.this.dispose();
+                    
+                }
+                            
+                                
+                                
+            }.start();        
+            
+            
             
         
-       // }else { 
-         //   JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
-
-//				}
+      }else { 
+            JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
+            jPSenha.setText("");
+            
+            
+            
+        			}
     }//GEN-LAST:event_jBEntrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBEntrar;
+    private javax.swing.JLabel jLCarregando;
     private javax.swing.JLabel jLSenha;
     private javax.swing.JLabel jLTituloLogin;
     private javax.swing.JLabel jLUsuario;
+    private javax.swing.JProgressBar jPBarraCarregando;
     private javax.swing.JPanel jPLogin;
     private javax.swing.JPasswordField jPSenha;
     private javax.swing.JTextField jTUsuario;
