@@ -583,6 +583,27 @@ public class Urna extends javax.swing.JPanel {
            votoController.voto.setDataVoto(Calendar.getInstance());
            votoController.Votar();
            LimparCampos();
+           
+           // CHAMAR BARRA DE PROGRESSO * CORRIGIR
+           
+           
+//                           ProgressoFimVotacao fimVotacao = new ProgressoFimVotacao();
+//                           this.getParent().getParent().add(fimVotacao);
+//                            try {
+//                            fimVotacao.setMaximum(true);
+//                        } catch (PropertyVetoException ex) {
+//                            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                           fimVotacao.setVisible(true);
+          
+        
+           
+           
+           
+           
+           
+           
+           
            LiberarNovoEleitor telaLiberaEleitor = new LiberarNovoEleitor();
            this.getParent().getParent().add(telaLiberaEleitor);
             try {

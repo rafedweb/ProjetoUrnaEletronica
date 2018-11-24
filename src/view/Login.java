@@ -40,15 +40,17 @@ public class Login extends javax.swing.JInternalFrame {
         jPLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
         jLTituloLogin.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLTituloLogin.setText("Urna Eletrônica");
+        jLTituloLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTituloLogin.setText("Sistema de Urna Eletrônica");
+        jLTituloLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPLoginLayout = new javax.swing.GroupLayout(jPLogin);
         jPLogin.setLayout(jPLoginLayout);
         jPLoginLayout.setHorizontalGroup(
             jPLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPLoginLayout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(jLTituloLogin)
+                .addGap(193, 193, 193)
+                .addComponent(jLTituloLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(199, 199, 199))
         );
         jPLoginLayout.setVerticalGroup(
@@ -59,6 +61,7 @@ public class Login extends javax.swing.JInternalFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jTUsuario.setText("admin");
         jTUsuario.setPreferredSize(new java.awt.Dimension(30, 20));
 
         jLUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -73,6 +76,8 @@ public class Login extends javax.swing.JInternalFrame {
                 jBEntrarActionPerformed(evt);
             }
         });
+
+        jPSenha.setText("admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,7 +122,7 @@ public class Login extends javax.swing.JInternalFrame {
                                 .addComponent(jPSenha)
                                 .addGap(1, 1, 1))))
                     .addComponent(jBEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,13 +131,14 @@ public class Login extends javax.swing.JInternalFrame {
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
         // TODO add your handling code here:
         
-        if(jTUsuario.getText().equals("admin")& jPSenha.getPassword().equals("")){
-            dispose();
+        //if(jTUsuario.getText().equals("admin") && jPSenha.getPassword().equals("admin")){
+            this.dispose();
             
-        }else { 
-            JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
+        
+       // }else { 
+         //   JOptionPane.showMessageDialog(null,"Login ou Senha incorretos","Sistema Urna Eletrônica",JOptionPane.PLAIN_MESSAGE);
 
-				}
+//				}
     }//GEN-LAST:event_jBEntrarActionPerformed
 
 

@@ -25,37 +25,37 @@ public class Relatorio extends javax.swing.JInternalFrame {
                
         
         initComponents();
-        ResultadoEleicao();
+    //    ResultadoEleicao();
     }
     
     private void ResultadoEleicao(){
         
-        jTVotosBrancos.setText(String.valueOf(votoController.ContarVotosBrancos()));
-        jTVotosNulos.setText(String.valueOf(votoController.ContarVotosNulos()));
-        jTVotosValidos.setText(String.valueOf(votoController.ContarVotosValidos()));
-        jTEleitores.setText(String.valueOf(votoController.ContarEleitores()));
-        
-        for (int i = 0; i < 6; i++) {
-            if (i == 1) {
-                int qtd = votoController.ContarVotos(77);
-                jTQtdVotos01.setText(String.valueOf(qtd));
-                jTCandidato01.setText("Teste");
-                jTNumCand01.setText("77");
-            }
-             if (i == 2) {
-                int qtd = votoController.ContarVotos(55);
-                jTQtdVotos02.setText(String.valueOf(qtd));
-                jTCandidato02.setText("Teste");
-                jTNumCand02.setText("55");
-            }
-              if (i == 3) {
-                int qtd = votoController.ContarVotos(24);
-                jTQtdVotos03.setText(String.valueOf(qtd));
-                jTCandidato03.setText("Teste");
-                jTNumCand03.setText("24");
-            }
+//        jTVotosBrancos.setText(String.valueOf(votoController.ContarVotosBrancos()));
+//        jTVotosNulos.setText(String.valueOf(votoController.ContarVotosNulos()));
+//        jTVotosValidos.setText(String.valueOf(votoController.ContarVotosValidos()));
+//        jTEleitores.setText(String.valueOf(votoController.ContarEleitores()));
+//        
+//        for (int i = 0; i < 6; i++) {
+//            if (i == 1) {
+//                int qtd = votoController.ContarVotos(77);
+//                jTQtdVotos01.setText(String.valueOf(qtd));
+//                jTCandidato01.setText("Teste");
+//                jTNumCand01.setText("77");
+//            }
+//             if (i == 2) {
+//                int qtd = votoController.ContarVotos(55);
+//                jTQtdVotos02.setText(String.valueOf(qtd));
+//                jTCandidato02.setText("Teste");
+//                jTNumCand02.setText("55");
+//            }
+//              if (i == 3) {
+//                int qtd = votoController.ContarVotos(24);
+//                jTQtdVotos03.setText(String.valueOf(qtd));
+//                jTCandidato03.setText("Teste");
+//                jTNumCand03.setText("24");
+//            }
         }
-    }
+    //}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -67,14 +67,6 @@ public class Relatorio extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPRelatorioVotacao = new javax.swing.JPanel();
-        jTCandidato01 = new javax.swing.JTextField();
-        jTCandidato05 = new javax.swing.JTextField();
-        jTCandidato02 = new javax.swing.JTextField();
-        jTCandidato03 = new javax.swing.JTextField();
-        jTCandidato04 = new javax.swing.JTextField();
-        jTCandidato06 = new javax.swing.JTextField();
-        jTNumCand01 = new javax.swing.JTextField();
-        jTQtdVotos01 = new javax.swing.JTextField();
         jTVotosBrancos = new javax.swing.JTextField();
         jTVotosNulos = new javax.swing.JTextField();
         jTVotosValidos = new javax.swing.JTextField();
@@ -84,27 +76,30 @@ public class Relatorio extends javax.swing.JInternalFrame {
         jLVotosNulos = new javax.swing.JLabel();
         jLVotosValidos = new javax.swing.JLabel();
         jLEleitores = new javax.swing.JLabel();
-        jTNumCand02 = new javax.swing.JTextField();
-        jTNumCand03 = new javax.swing.JTextField();
-        jTQtdVotos03 = new javax.swing.JTextField();
-        jTQtdVotos04 = new javax.swing.JTextField();
-        jTNumCand04 = new javax.swing.JTextField();
-        jTQtdVotos05 = new javax.swing.JTextField();
-        jTQtdVotos06 = new javax.swing.JTextField();
-        jTNumCand06 = new javax.swing.JTextField();
-        jTQtdVotos02 = new javax.swing.JTextField();
-        jTNumCand05 = new javax.swing.JTextField();
-        jLNomeCandidado = new javax.swing.JLabel();
-        jLNumeroCandidado = new javax.swing.JLabel();
-        jLQtdVotos = new javax.swing.JLabel();
         jPTituloRelatorio = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jSPResultado = new javax.swing.JScrollPane();
+        jTResultado = new javax.swing.JTable();
 
         setClosable(true);
+        setResizable(true);
+        getContentPane().setLayout(null);
 
         jPRelatorioVotacao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPRelatorioVotacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jTEleitores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTEleitoresActionPerformed(evt);
+            }
+        });
 
         jBSair.setText("Sair");
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
 
         jLVotosBrancos.setText("Brancos");
 
@@ -114,224 +109,130 @@ public class Relatorio extends javax.swing.JInternalFrame {
 
         jLEleitores.setText("Eleitores");
 
-        jLNomeCandidado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLNomeCandidado.setText("Candidato");
-
-        jLNumeroCandidado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLNumeroCandidado.setText("Numero");
-
-        jLQtdVotos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLQtdVotos.setText("Qtd Votos");
-
         jPTituloRelatorio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Relatorio das Eleições");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPTituloRelatorioLayout = new javax.swing.GroupLayout(jPTituloRelatorio);
         jPTituloRelatorio.setLayout(jPTituloRelatorioLayout);
         jPTituloRelatorioLayout.setHorizontalGroup(
             jPTituloRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPTituloRelatorioLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel5)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGap(306, 306, 306)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(334, 334, 334))
         );
         jPTituloRelatorioLayout.setVerticalGroup(
             jPTituloRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTituloRelatorioLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTituloRelatorioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        jTResultado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Candidado", "Legenda", "Quant. Votos"
+            }
+        ));
+        jSPResultado.setViewportView(jTResultado);
 
         javax.swing.GroupLayout jPRelatorioVotacaoLayout = new javax.swing.GroupLayout(jPRelatorioVotacao);
         jPRelatorioVotacao.setLayout(jPRelatorioVotacaoLayout);
         jPRelatorioVotacaoLayout.setHorizontalGroup(
             jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPTituloRelatorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                        .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                                    .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTCandidato02, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTCandidato03, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTCandidato04, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTCandidato05, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTCandidato01, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                                            .addComponent(jTVotosBrancos, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTVotosNulos, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTVotosValidos, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jTCandidato06, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPRelatorioVotacaoLayout.createSequentialGroup()
-                                    .addComponent(jLNomeCandidado)
-                                    .addGap(90, 90, 90)))
-                            .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLVotosBrancos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLVotosNulos)
-                                .addGap(65, 65, 65)
-                                .addComponent(jLVotosValidos)
-                                .addGap(32, 32, 32)))
+                        .addGap(20, 20, 20)
+                        .addComponent(jSPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                                .addComponent(jTEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPRelatorioVotacaoLayout.createSequentialGroup()
+                                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLEleitores)
+                                    .addComponent(jLVotosValidos)
+                                    .addComponent(jLVotosNulos)
+                                    .addComponent(jLVotosBrancos))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLEleitores)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPTituloRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addComponent(jTNumCand02, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTQtdVotos02, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addComponent(jTNumCand03, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTQtdVotos03, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addComponent(jTNumCand04, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTQtdVotos04, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addComponent(jTNumCand05, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTQtdVotos05, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addComponent(jTNumCand06, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTQtdVotos06, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                            .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTNumCand01, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
-                                    .addComponent(jLNumeroCandidado)
-                                    .addGap(8, 8, 8)))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLQtdVotos)
-                                .addComponent(jTQtdVotos01, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTEleitores, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(jTVotosNulos, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(jTVotosBrancos)
+                                    .addComponent(jTVotosValidos)))
+                            .addComponent(jBSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPRelatorioVotacaoLayout.setVerticalGroup(
             jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPTituloRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNomeCandidado)
-                    .addComponent(jLNumeroCandidado)
-                    .addComponent(jLQtdVotos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos03, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand04, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTCandidato06, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumCand06, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTQtdVotos06, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLVotosBrancos)
-                    .addComponent(jLVotosNulos)
-                    .addComponent(jLVotosValidos)
-                    .addComponent(jLEleitores))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTVotosBrancos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTVotosValidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTVotosNulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBSair))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addComponent(jPTituloRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jSPResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(40, Short.MAX_VALUE))
+                    .addGroup(jPRelatorioVotacaoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLVotosBrancos)
+                            .addComponent(jTVotosValidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLVotosNulos)
+                            .addComponent(jTVotosBrancos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLEleitores)
+                            .addComponent(jTVotosNulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPRelatorioVotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLVotosValidos)
+                            .addComponent(jTEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jBSair)
+                        .addGap(29, 29, 29))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPRelatorioVotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPRelatorioVotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPRelatorioVotacao);
+        jPRelatorioVotacao.setBounds(10, 11, 850, 493);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTEleitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEleitoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTEleitoresActionPerformed
+
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jBSairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSair;
     private javax.swing.JLabel jLEleitores;
-    private javax.swing.JLabel jLNomeCandidado;
-    private javax.swing.JLabel jLNumeroCandidado;
-    private javax.swing.JLabel jLQtdVotos;
     private javax.swing.JLabel jLVotosBrancos;
     private javax.swing.JLabel jLVotosNulos;
     private javax.swing.JLabel jLVotosValidos;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPRelatorioVotacao;
     private javax.swing.JPanel jPTituloRelatorio;
-    private javax.swing.JTextField jTCandidato01;
-    private javax.swing.JTextField jTCandidato02;
-    private javax.swing.JTextField jTCandidato03;
-    private javax.swing.JTextField jTCandidato04;
-    private javax.swing.JTextField jTCandidato05;
-    private javax.swing.JTextField jTCandidato06;
+    private javax.swing.JScrollPane jSPResultado;
     private javax.swing.JTextField jTEleitores;
-    private javax.swing.JTextField jTNumCand01;
-    private javax.swing.JTextField jTNumCand02;
-    private javax.swing.JTextField jTNumCand03;
-    private javax.swing.JTextField jTNumCand04;
-    private javax.swing.JTextField jTNumCand05;
-    private javax.swing.JTextField jTNumCand06;
-    private javax.swing.JTextField jTQtdVotos01;
-    private javax.swing.JTextField jTQtdVotos02;
-    private javax.swing.JTextField jTQtdVotos03;
-    private javax.swing.JTextField jTQtdVotos04;
-    private javax.swing.JTextField jTQtdVotos05;
-    private javax.swing.JTextField jTQtdVotos06;
+    private javax.swing.JTable jTResultado;
     private javax.swing.JTextField jTVotosBrancos;
     private javax.swing.JTextField jTVotosNulos;
     private javax.swing.JTextField jTVotosValidos;
