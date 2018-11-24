@@ -153,10 +153,10 @@ public class Login extends javax.swing.JInternalFrame {
             new Thread(){
                 public void run(){
                 
-                    for (int i = 0; i < 101; i++) {
+                    for (int i = 0; i < 90; i++) {
                         
                         try {
-                            sleep(100);
+                            sleep(90);
                             jPBarraCarregando.setValue(i);
                             
                             if (jPBarraCarregando.getValue()<=25) {
