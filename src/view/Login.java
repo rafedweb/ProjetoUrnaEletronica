@@ -43,6 +43,8 @@ public class Login extends javax.swing.JInternalFrame {
         jPBarraCarregando = new javax.swing.JProgressBar();
         jLCarregando = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jPLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
         jLTituloLogin.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -99,9 +101,7 @@ public class Login extends javax.swing.JInternalFrame {
                             .addComponent(jLCarregando, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLUsuario)
-                                        .addGap(0, 0, 0))
+                                    .addComponent(jLUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLSenha)
                                         .addGap(15, 15, 15)))
@@ -153,19 +153,19 @@ public class Login extends javax.swing.JInternalFrame {
             new Thread(){
                 public void run(){
                 
-                    for (int i = 0; i < 101; i++) {
+                    for (int i = 0; i < 51; i++) {
                         
                         try {
-                            sleep(100);
+                            sleep(50);
                             jPBarraCarregando.setValue(i);
                             
-                            if (jPBarraCarregando.getValue()<=25) {
+                            if (jPBarraCarregando.getValue()<=10) {
                                 jLCarregando.setText("Carregando Sistema...");
-                            }else if (jPBarraCarregando.getValue()<=25) {
+                            }else if (jPBarraCarregando.getValue()<=15) {
                                 jLCarregando.setText("Carregando Banco de Dados...");
-                            }else if (jPBarraCarregando.getValue()<=50) {
+                            }else if (jPBarraCarregando.getValue()<=25) {
                                 jLCarregando.setText("Efetuando Leitura das Tabelas...");
-                            }else if (jPBarraCarregando.getValue()<=75) {
+                            }else if (jPBarraCarregando.getValue()<=35) {
                                 jLCarregando.setText("Aguarde... O sistema esta Sendo Iniciado!!!");
                                 
                                 

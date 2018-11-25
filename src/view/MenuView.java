@@ -7,11 +7,17 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -80,6 +86,8 @@ public class MenuView extends javax.swing.JFrame {
         jBLimparBase = new javax.swing.JButton();
         jBRelatorio = new javax.swing.JButton();
         jBUrnaElectronica = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jBSair = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -97,6 +105,11 @@ public class MenuView extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         CadastrarCandidato.setText("Cadastrar Candidato");
         CadastrarCandidato.setToolTipText("");
@@ -136,6 +149,19 @@ public class MenuView extends javax.swing.JFrame {
         });
         jBPrincipal.add(jBUrnaElectronica);
         jBUrnaElectronica.setBounds(220, 360, 130, 40);
+
+        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+3));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("dataSistema");
+        jBPrincipal.add(jLabel1);
+        jLabel1.setBounds(560, 650, 90, 20);
+
+        jLabel2.setFont(jLabel2.getFont().deriveFont(jLabel2.getFont().getStyle() | java.awt.Font.BOLD, jLabel2.getFont().getSize()+3));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("hora");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBPrincipal.add(jLabel2);
+        jLabel2.setBounds(650, 650, 80, 20);
 
         jBSair.setText("Sair");
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +310,15 @@ public class MenuView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jBSairActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       Date dataUrna = new Date();
+       SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+       jLabel1.setText(formato.format(dataUrna));
+       
+       Timer horaUrna = new Timer(1000, new hora());
+       horaUrna.start();
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -335,11 +370,19 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jBRelatorio;
     private javax.swing.JButton jBSair;
     private javax.swing.JButton jBUrnaElectronica;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
-
+class hora implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+        Calendar now = Calendar.getInstance();
+        jLabel2.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        
+    }
+ }
 }
