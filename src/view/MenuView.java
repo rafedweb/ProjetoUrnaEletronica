@@ -24,6 +24,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -31,6 +32,8 @@ import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -85,17 +88,6 @@ public class MenuView extends javax.swing.JFrame {
             jLFoto.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLFoto.getWidth(), jLFoto.getHeight(), Image.SCALE_DEFAULT)));
            }
            
-    } 
-    
-    public void  PlayMusic(){
-        try {
-            URL url = this.getClass().getClassLoader().getResource("musica.wav");
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioIn);
-            clip.start();
-        } catch (Exception e) {
-        }
     }
     
     private void LimparCampos(){
@@ -1016,6 +1008,26 @@ public class MenuView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBZEROActionPerformed
 
+    
+     private void TocarMusica(){
+         try {
+       
+        URL url = this.getClass().getResource("/view/Sound.wav");
+         AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+         
+         Clip clip = AudioSystem.getClip();
+         
+         clip.open(audioIn);
+         clip.start();
+      } catch (UnsupportedAudioFileException e) {
+         e.printStackTrace();
+      } catch (IOException e) {
+         e.printStackTrace();
+      } catch (LineUnavailableException e) {
+         e.printStackTrace();
+      }
+    }
+    
     private void jBCONFIRMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCONFIRMARActionPerformed
      
         if ("".equals(jTDigitoUM.getText()) || "".equals(jTDigitoDOIS.getText())) {
@@ -1039,7 +1051,7 @@ public class MenuView extends javax.swing.JFrame {
             votoController.Votar();
             LimparCampos();
             FinalizaVoto();
-            PlayMusic();
+             TocarMusica();
             this.jDUrna.dispose();
         }
     }//GEN-LAST:event_jBCONFIRMARActionPerformed
