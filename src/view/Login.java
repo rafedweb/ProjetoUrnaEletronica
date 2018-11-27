@@ -44,6 +44,7 @@ public class Login extends javax.swing.JInternalFrame {
         jLCarregando = new javax.swing.JLabel();
 
         setClosable(true);
+        setFrameIcon(new javax.swing.ImageIcon("C:\\Users\\giliarde\\Downloads\\eleicoes 2018.png")); // NOI18N
 
         jPLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
@@ -153,17 +154,13 @@ public class Login extends javax.swing.JInternalFrame {
             new Thread(){
                 public void run(){
                 
-<<<<<<< HEAD
+
                     for (int i = 0; i < 51; i++) {
                         
                         try {
                             sleep(50);
-=======
-                    for (int i = 0; i < 90; i++) {
-                        
-                        try {
-                            sleep(90);
->>>>>>> ec24703c53d7615c5f5d3164635a54d603d44975
+
+
                             jPBarraCarregando.setValue(i);
                             
                             if (jPBarraCarregando.getValue()<=10) {

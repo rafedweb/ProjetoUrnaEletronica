@@ -7,7 +7,7 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
-<<<<<<< HEAD
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
@@ -19,17 +19,21 @@ import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-=======
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
->>>>>>> ec24703c53d7615c5f5d3164635a54d603d44975
+
 
 /**
  *
@@ -82,6 +86,17 @@ public class MenuView extends javax.swing.JFrame {
            }
            
     } 
+    
+    public void  PlayMusic(){
+        try {
+            URL url = this.getClass().getClassLoader().getResource("musica.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+        }
+    }
     
     private void LimparCampos(){
         jTDigitoUM.setText("");
@@ -139,8 +154,10 @@ public class MenuView extends javax.swing.JFrame {
         jBZERO = new javax.swing.JButton();
         jBCONFIRMAR = new javax.swing.JButton();
         jBCANCELAR = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLDataHora = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jBPrincipal = new javax.swing.JDesktopPane();
         CadastrarCandidato = new javax.swing.JButton();
         jBLimparBase = new javax.swing.JButton();
@@ -165,6 +182,7 @@ public class MenuView extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         LiberarEleitor.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        LiberarEleitor.setTitle("Liberação de Urna Eletronica");
 
         jLFim.setFont(new java.awt.Font("Tahoma", 0, 200)); // NOI18N
         jLFim.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -543,9 +561,15 @@ public class MenuView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/voto.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/voto.png"))); // NOI18N
 
         jLDataHora.setToolTipText("");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
+        jLabel4.setText("Eleitoral");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
+        jLabel5.setText("Justiça");
 
         javax.swing.GroupLayout centroLayout = new javax.swing.GroupLayout(centro);
         centro.setLayout(centroLayout);
@@ -564,15 +588,25 @@ public class MenuView extends javax.swing.JFrame {
                     .addGroup(centroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(106, 106, 106)
+                .addGap(50, 50, 50)
                 .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centroLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)
+                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centroLayout.createSequentialGroup()
+                    .addContainerGap(818, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(103, 103, 103)))
         );
         centroLayout.setVerticalGroup(
             centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,12 +622,22 @@ public class MenuView extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jTCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(centroLayout.createSequentialGroup()
-                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
+                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)))
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(centroLayout.createSequentialGroup()
+                    .addGap(112, 112, 112)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(478, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -602,7 +646,7 @@ public class MenuView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(centro, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(centro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -819,7 +863,7 @@ public class MenuView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jBSairActionPerformed
 
-<<<<<<< HEAD
+
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        Date dataUrna = new Date();
        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -828,7 +872,7 @@ public class MenuView extends javax.swing.JFrame {
        Timer horaUrna = new Timer(1000, new hora());
        horaUrna.start();
     }//GEN-LAST:event_formWindowOpened
-=======
+
     private void jBSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSair1ActionPerformed
         // TODO add your handling code here:
        this.LiberarEleitor.dispose();        
@@ -940,11 +984,12 @@ public class MenuView extends javax.swing.JFrame {
 
         jTDigitoUM.setText("0");
         jTDigitoDOIS.setText("0");
+        jTNome.setText("VOTO BRANCO");
 
         votoController.voto.setValorVoto(00);
         votoController.voto.setDataVoto(Calendar.getInstance());
         votoController.candidato = null;
-        votoController.Votar();
+        
     }//GEN-LAST:event_jBBRANCOActionPerformed
 
     private void jBNOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNOVEActionPerformed
@@ -981,8 +1026,12 @@ public class MenuView extends javax.swing.JFrame {
 
             votoController.candidato = candidatoController.BuscarCandidato(valor);
 
-            if (votoController.candidato == null) {
-                //valor 1 significa voto nulo
+            if (votoController.candidato == null && "VOTO BRANCO".equals(jTNome.getText())) {
+                // voto 0 significa voto Branco
+                valor = 0;
+               
+            }else{
+             //valor 1 significa voto nulo
                 valor = 1;
             }
             votoController.voto.setValorVoto(valor);
@@ -990,6 +1039,7 @@ public class MenuView extends javax.swing.JFrame {
             votoController.Votar();
             LimparCampos();
             FinalizaVoto();
+            PlayMusic();
             this.jDUrna.dispose();
         }
     }//GEN-LAST:event_jBCONFIRMARActionPerformed
@@ -1021,7 +1071,7 @@ public class MenuView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Informe um código de Admistrador valido!");
         }
     }//GEN-LAST:event_jLNovoEleitorActionPerformed
->>>>>>> ec24703c53d7615c5f5d3164635a54d603d44975
+
 
     /**
      * @param args the command line arguments
@@ -1089,10 +1139,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jBTRES;
     private javax.swing.JButton jBUM;
     private javax.swing.JButton jBUrnaElectronica;
-<<<<<<< HEAD
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-=======
     private javax.swing.JButton jBZERO;
     private javax.swing.JDialog jDUrna;
     private javax.swing.JLabel jLCodigoSeguranca;
@@ -1102,6 +1148,10 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jLNovoEleitor;
     private javax.swing.JButton jLResultadoFinal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPFim;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1112,7 +1162,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JTextField jTDigitoUM;
     private javax.swing.JTextField jTInserirNovoEleitor;
     private javax.swing.JTextField jTNome;
->>>>>>> ec24703c53d7615c5f5d3164635a54d603d44975
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

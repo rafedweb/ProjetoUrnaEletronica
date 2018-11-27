@@ -132,7 +132,7 @@ public class VotoDAO {
          try {
                PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto =?");
                
-                pstmt.setInt(1, 0);
+                pstmt.setInt(1, 1);
              
                ResultSet rs = pstmt.executeQuery();
                int quantidade = 0;
@@ -153,7 +153,7 @@ public class VotoDAO {
          try {
                PreparedStatement pstmt = conexao.prepareStatement("select count(1) as resultado from voto where valorVoto =?");
                
-                pstmt.setInt(1, 1);
+                pstmt.setInt(1, 0);
              
                ResultSet rs = pstmt.executeQuery();
                int quantidade = 0;
