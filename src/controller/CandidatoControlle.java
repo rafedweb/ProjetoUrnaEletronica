@@ -4,7 +4,6 @@ package controller;
 import Domain.Candidato;
 import dao.CandidatoDAO;
 import java.util.List;
-import view.CadastrarCandidato;
 
 
 public class CandidatoControlle {

@@ -10,7 +10,7 @@ public class ConnectionFactory {
     
     private String url  = "jdbc:mysql://localhost/eleicoes?autoReconnect=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
     private String user = "root";
-    private String pass = "1234";
+    private String pass = "";
     
     public Connection getConnection() {
         try {

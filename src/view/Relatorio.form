@@ -54,11 +54,16 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLEleitores" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLVotosValidos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLVotosNulos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLVotosBrancos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLVotosBrancos" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLEleitores" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="jLVotosNulos" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLVotosValidos" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -89,27 +94,27 @@
                           <EmptySpace pref="40" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="39" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLVotosBrancos" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTVotosValidos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLVotosNulos" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTVotosBrancos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLEleitores" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLVotosNulos" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTVotosNulos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTVotosValidos" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLVotosValidos" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTEleitores" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTEleitores" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLEleitores" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jBSair" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>

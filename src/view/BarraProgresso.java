@@ -14,11 +14,58 @@ import java.awt.event.ActionListener;
  */
 public class BarraProgresso extends javax.swing.JPanel implements ActionListener{
 
-    /**
-     * Creates new form BarraProgresso
-     */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public BarraProgresso() {
         initComponents();
+        
+        new Thread(){
+                public void run(){
+                
+                    for (int i = 0; i < 101; i++) {
+                        
+                        try {
+                            sleep(100);
+                            jPBFimVotacao.setValue(i);
+                            
+                            if (jPBFimVotacao.getValue()<=25) {
+                           //     jLCarregando.setText("Carregando Sistema...");
+                            }
+                            
+                        } catch (Exception e) {
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                }
+                            
+                                
+                                
+            }.start();
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -30,15 +77,23 @@ public class BarraProgresso extends javax.swing.JPanel implements ActionListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPBFimVotacao = new javax.swing.JProgressBar();
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addComponent(jPBFimVotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPBFimVotacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -49,5 +104,6 @@ public class BarraProgresso extends javax.swing.JPanel implements ActionListener
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar jPBFimVotacao;
     // End of variables declaration//GEN-END:variables
 }

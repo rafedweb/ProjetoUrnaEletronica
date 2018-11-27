@@ -7,15 +7,33 @@ package view;
 
 import controller.CandidatoControlle;
 import controller.VotoControlle;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDesktopPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -68,6 +86,17 @@ public class MenuView extends javax.swing.JFrame {
            }
            
     } 
+    
+    public void  PlayMusic(){
+        try {
+            URL url = this.getClass().getClassLoader().getResource("musica.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+        }
+    }
     
     private void LimparCampos(){
         jTDigitoUM.setText("");
@@ -125,13 +154,17 @@ public class MenuView extends javax.swing.JFrame {
         jBZERO = new javax.swing.JButton();
         jBCONFIRMAR = new javax.swing.JButton();
         jBCANCELAR = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLDataHora = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jBPrincipal = new javax.swing.JDesktopPane();
         CadastrarCandidato = new javax.swing.JButton();
         jBLimparBase = new javax.swing.JButton();
         jBRelatorio = new javax.swing.JButton();
         jBUrnaElectronica = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jBSair = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -149,6 +182,7 @@ public class MenuView extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         LiberarEleitor.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        LiberarEleitor.setTitle("Liberação de Urna Eletronica");
 
         jLFim.setFont(new java.awt.Font("Tahoma", 0, 200)); // NOI18N
         jLFim.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -527,9 +561,15 @@ public class MenuView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/voto.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/voto.png"))); // NOI18N
 
         jLDataHora.setToolTipText("");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
+        jLabel4.setText("Eleitoral");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
+        jLabel5.setText("Justiça");
 
         javax.swing.GroupLayout centroLayout = new javax.swing.GroupLayout(centro);
         centro.setLayout(centroLayout);
@@ -548,15 +588,25 @@ public class MenuView extends javax.swing.JFrame {
                     .addGroup(centroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(106, 106, 106)
+                .addGap(50, 50, 50)
                 .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centroLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)
+                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centroLayout.createSequentialGroup()
+                    .addContainerGap(818, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(103, 103, 103)))
         );
         centroLayout.setVerticalGroup(
             centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,12 +622,22 @@ public class MenuView extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jTCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(centroLayout.createSequentialGroup()
-                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
+                        .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(centroLayout.createSequentialGroup()
+                                .addComponent(jLDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)))
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(centroLayout.createSequentialGroup()
+                    .addGap(112, 112, 112)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(478, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -586,7 +646,7 @@ public class MenuView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(centro, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(centro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -619,6 +679,11 @@ public class MenuView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         CadastrarCandidato.setText("Cadastrar Candidato");
         CadastrarCandidato.setToolTipText("");
@@ -658,6 +723,19 @@ public class MenuView extends javax.swing.JFrame {
         });
         jBPrincipal.add(jBUrnaElectronica);
         jBUrnaElectronica.setBounds(220, 360, 130, 40);
+
+        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+3));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("dataSistema");
+        jBPrincipal.add(jLabel1);
+        jLabel1.setBounds(560, 650, 90, 20);
+
+        jLabel2.setFont(jLabel2.getFont().deriveFont(jLabel2.getFont().getStyle() | java.awt.Font.BOLD, jLabel2.getFont().getSize()+3));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("hora");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBPrincipal.add(jLabel2);
+        jLabel2.setBounds(650, 650, 80, 20);
 
         jBSair.setText("Sair");
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -785,6 +863,16 @@ public class MenuView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jBSairActionPerformed
 
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       Date dataUrna = new Date();
+       SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+       jLabel1.setText(formato.format(dataUrna));
+       
+       Timer horaUrna = new Timer(1000, new hora());
+       horaUrna.start();
+    }//GEN-LAST:event_formWindowOpened
+
     private void jBSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSair1ActionPerformed
         // TODO add your handling code here:
        this.LiberarEleitor.dispose();        
@@ -896,11 +984,12 @@ public class MenuView extends javax.swing.JFrame {
 
         jTDigitoUM.setText("0");
         jTDigitoDOIS.setText("0");
+        jTNome.setText("VOTO BRANCO");
 
         votoController.voto.setValorVoto(00);
         votoController.voto.setDataVoto(Calendar.getInstance());
         votoController.candidato = null;
-        votoController.Votar();
+        
     }//GEN-LAST:event_jBBRANCOActionPerformed
 
     private void jBNOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNOVEActionPerformed
@@ -937,8 +1026,12 @@ public class MenuView extends javax.swing.JFrame {
 
             votoController.candidato = candidatoController.BuscarCandidato(valor);
 
-            if (votoController.candidato == null) {
-                //valor 1 significa voto nulo
+            if (votoController.candidato == null && "VOTO BRANCO".equals(jTNome.getText())) {
+                // voto 0 significa voto Branco
+                valor = 0;
+               
+            }else{
+             //valor 1 significa voto nulo
                 valor = 1;
             }
             votoController.voto.setValorVoto(valor);
@@ -946,6 +1039,7 @@ public class MenuView extends javax.swing.JFrame {
             votoController.Votar();
             LimparCampos();
             FinalizaVoto();
+            PlayMusic();
             this.jDUrna.dispose();
         }
     }//GEN-LAST:event_jBCONFIRMARActionPerformed
@@ -977,6 +1071,7 @@ public class MenuView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Informe um código de Admistrador valido!");
         }
     }//GEN-LAST:event_jLNovoEleitorActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1053,6 +1148,10 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jLNovoEleitor;
     private javax.swing.JButton jLResultadoFinal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPFim;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1069,5 +1168,11 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
-
+class hora implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+        Calendar now = Calendar.getInstance();
+        jLabel2.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        
+    }
+ }
 }
